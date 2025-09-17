@@ -1,0 +1,1124 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/public/assets/icons/logo.svg"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content="Astro v5.13.7" />
+    <link rel="stylesheet" href="/src/styles/global.css" />
+    <link rel="stylesheet" href="/src/styles/output.css" />
+    <title>Details Booking | Activ Workshop</title>
+  </head>
+  <body>
+    <div class="bg-gray-blue">
+      <div
+        class="bg-white fixed top-0 left-0 right-0 z-40 transition-transform duration-300 ease-in-out"
+        id="navbar"
+      >
+        <div
+          class="flex justify-between items-center px-6 py-5 lg:p-[32px] max-w-[1216px] xl:px-0 mx-auto"
+        >
+          <!-- Logo Section -->
+          <a href="/src/pages" class="flex gap-2 items-center">
+            <img
+              src="/public/assets/icons/logo.svg"
+              alt="Logo"
+              class="w-8 h-8 lg:w-10 lg:h-10"
+            />
+            <p class="text-24 font-bold text-black">AKTIV</p>
+          </a>
+          <!-- Desktop Navigation -->
+          <div class="hidden lg:flex gap-32 text-16 font-medium text-gray">
+            <a
+              href="/src/pages/view-booking"
+              class="hover:text-black transition-colors"
+              >View My Booking</a
+            >
+            <a
+              href="/src/pages#workshop"
+              class="hover:text-black transition-colors"
+              >Workshop</a
+            >
+            <a
+              href="/src/pages#community"
+              class="hover:text-black transition-colors"
+              >Community</a
+            >
+            <a
+              href="/src/pages#testimone"
+              class="hover:text-black transition-colors"
+              >Testimone</a
+            >
+          </div>
+          <!-- Desktop Contact Button -->
+          <div class="hidden lg:block">
+            <button
+              type="button"
+              class="flex items-center cursor-pointer gap-3 rounded-full justify-center transition-all duration-500 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-95 relative z-10 disabled:cursor-not-allowed disabled:!bg-[#E6E7EB] disabled:!shadow-none bg-green text-white hover:bg-green-600 hover:shadow-2xl hover:shadow-green-500/50 relative overflow-hidden group before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700 text-16 font-semibold px-4 h-[40px] md:px-6 md:h-[48px]"
+            >
+              <span class="relative z-10 flex items-center gap-2 md:gap-3">
+                Contact CS
+                <img
+                  src="/public/assets/icons/wa.svg"
+                  alt="Phone Call"
+                  class="w-5 h-5 lg:w-6 lg:h-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+              /></span>
+            </button>
+          </div>
+          <!-- Mobile Hamburger Button -->
+          <button
+            id="mobile-menu-button"
+            class="lg:hidden flex flex-col gap-1 p-2"
+            aria-label="Toggle mobile menu"
+          >
+            <span
+              class="w-6 h-0.5 bg-black transition-all duration-300"
+              id="line1"
+            ></span>
+            <span
+              class="w-6 h-0.5 bg-black transition-all duration-300"
+              id="line2"
+            ></span>
+            <span
+              class="w-6 h-0.5 bg-black transition-all duration-300"
+              id="line3"
+            ></span>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Drawer Backdrop -->
+      <div
+        id="drawer-backdrop"
+        class="fixed inset-0 z-50 lg:hidden bg-black/40 backdrop-blur-sm opacity-0 transition-opacity duration-300 ease-in-out pointer-events-none"
+      ></div>
+      <!-- Mobile Drawer Content -->
+      <div
+        id="mobile-drawer"
+        class="fixed inset-y-0 left-0 z-50 lg:hidden w-72 max-w-[80vw] h-full bg-white shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out"
+      >
+        <!-- Drawer Header -->
+        <div class="flex justify-between items-center px-8 py-6">
+          <div class="flex gap-3 items-center">
+            <img
+              src="/public/assets/icons/logo.svg"
+              alt="Logo"
+              class="w-7 h-7"
+            />
+            <p class="text-xl font-bold text-black">AKTIV</p>
+          </div>
+          <button
+            id="close-drawer-button"
+            class="p-1.5 hover:bg-gray-50 rounded-lg transition-colors duration-200"
+            aria-label="Close menu"
+          >
+            <svg
+              class="w-5 h-5 text-gray-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <!-- Drawer Navigation -->
+        <nav class="px-8 pb-8">
+          <div class="flex flex-col space-y-1">
+            <a
+              href="/src/pages/view-booking"
+              class="text-lg font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 py-3 px-4 rounded-lg"
+            >
+              View My Booking
+            </a>
+            <a
+              href="/src/pages#workshop"
+              class="text-lg font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 py-3 px-4 rounded-lg"
+            >
+              Workshop
+            </a>
+            <a
+              href="/src/pages#community"
+              class="text-lg font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 py-3 px-4 rounded-lg"
+            >
+              Community
+            </a>
+            <a
+              href="/src/pages#testimone"
+              class="text-lg font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 py-3 px-4 rounded-lg"
+            >
+              Testimone
+            </a>
+          </div>
+        </nav>
+        <!-- Drawer Footer -->
+        <div class="absolute bottom-8 left-8 right-8">
+          <button
+            type="button"
+            class="flex items-center cursor-pointer gap-3 rounded-full justify-center transition-all duration-500 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-95 relative z-10 disabled:cursor-not-allowed disabled:!bg-[#E6E7EB] disabled:!shadow-none bg-green text-white hover:bg-green-600 hover:shadow-2xl hover:shadow-green-500/50 relative overflow-hidden group before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700 text-16 font-semibold px-4 h-[43px] md:px-6 md:h-[56px] w-full"
+          >
+            <span class="relative z-10 flex items-center gap-2 md:gap-3">
+              Contact CS
+              <img
+                src="/public/assets/icons/wa.svg"
+                alt="Phone Call"
+                class="w-6 h-6 lg:w-7 lg:h-7 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+            /></span>
+          </button>
+        </div>
+      </div>
+      <section class="relative w-full blue-gradient px-4">
+        <div
+          class="relative z-10 flex flex-col items-center justify-center w-full pt-[120px] pb-[150px] md:pt-[130px] md:pb-[160px] lg:pt-[176px]"
+        >
+          <!-- Title -->
+          <h1
+            class="text-32 text-white text-center mb-1.5 leading-tight font-bold"
+          >
+            Booking Workshop
+          </h1>
+          <!-- Subtitle -->
+          <p class="text-white text-16 text-center">Happy Learning~</p>
+          <!-- Breadcrumb -->
+        </div>
+      </section>
+      <div
+        class="w-[93%] max-w-1176 xl:w-full mx-auto -translate-y-[100px] grid gap-4 md:gap-6 lg:gap-8 lg:grid-cols-[420px_1fr]"
+      >
+        <!-- Workshop Details Card with Accordion -->
+        <div
+          class="bg-white rounded-2xl md:rounded-3xl lg:rounded-3xl p-4 md:p-6 lg:p-8 flex flex-col gap-6 md:gap-8 h-fit"
+        >
+          <!-- Workshop Details Header -->
+          <div class="flex flex-col gap-4 items-center">
+            <h2
+              class="capitalize font-bold text-black text-lg md:text-xl lg:text-xl leading-tight w-full"
+            >
+              Workshop Details
+            </h2>
+            <!-- Workshop Image and Basic Info -->
+            <div class="flex flex-col gap-3 md:gap-4 lg:gap-5 w-full">
+              <!-- Workshop Image -->
+              <div class="w-full">
+                <img
+                  src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80"
+                  alt="Workshop Image"
+                  class="w-full h-48 md:h-52 lg:h-60 object-cover rounded-xl md:rounded-2xl lg:rounded-2xl"
+                />
+              </div>
+              <div class="flex flex-col gap-3">
+                <!-- Date and Time Info -->
+                <div
+                  class="flex flex-row flex-wrap gap-2 md:gap-3 lg:gap-3 items-center w-full"
+                >
+                  <div class="flex gap-1 md:gap-1 lg:gap-1 items-center">
+                    <img
+                      src="/public/assets/icons/calendar-2.svg"
+                      alt="Calendar"
+                      class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6"
+                    />
+                    <span
+                      class="capitalize font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                    >
+                      Fri, 30 May 2024
+                    </span>
+                  </div>
+                  <div class="flex gap-1 md:gap-1 lg:gap-1 items-center">
+                    <img
+                      src="/public/assets/icons/timer.svg"
+                      alt="Timer"
+                      class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6"
+                    />
+                    <span
+                      class="capitalize font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                    >
+                      09:30 AM - Finish
+                    </span>
+                  </div>
+                </div>
+                <!-- Workshop Title -->
+                <h3
+                  class="capitalize font-bold text-black text-lg md:text-xl lg:text-xl leading-[160%]"
+                >
+                  Mastering the Art of Public Speaking: Practical Tips and
+                  Powerful Techniques
+                </h3>
+              </div>
+            </div>
+          </div>
+          <!-- Accordion Toggle -->
+          <input
+            type="checkbox"
+            id="workshop-details-accordion"
+            class="hidden peer"
+          />
+          <!-- Accordion Content -->
+          <div
+            class="grid grid-rows-[0fr] peer-checked:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-in-out"
+          >
+            <div class="overflow-hidden">
+              <div class="flex flex-col gap-6 md:gap-8">
+                <!-- Instructor Details -->
+                <div class="flex flex-col gap-4">
+                  <h4
+                    class="capitalize font-bold text-black text-lg md:text-xl lg:text-xl leading-tight"
+                  >
+                    Instructor Details
+                  </h4>
+                  <div
+                    class="bg-white border border-[#e6e7eb] rounded-lg md:rounded-xl lg:rounded-xl p-3 md:p-4 lg:p-4 flex gap-3 items-center"
+                  >
+                    <!-- Instructor Avatar -->
+                    <div
+                      class="w-12 h-12 md:w-16 md:h-16 lg:w-16 lg:h-16 rounded-full bg-gray-200 flex-shrink-0"
+                    >
+                      <img
+                        src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80"
+                        alt="Instructor"
+                        class="w-full h-full object-cover rounded-full"
+                      />
+                    </div>
+                    <!-- Instructor Info -->
+                    <div class="flex-1 flex flex-col gap-0.5">
+                      <h5
+                        class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                      >
+                        Megamore S Qie
+                      </h5>
+                      <p
+                        class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                      >
+                        Motivator Instructor
+                      </p>
+                    </div>
+                    <!-- Verified Badge -->
+                    <div
+                      class="bg-[#0268fb] rounded-full p-2 md:p-2.5 lg:p-2.5 flex-shrink-0"
+                    >
+                      <img
+                        src="/public/assets/icons/verify.svg"
+                        alt="Verified"
+                        class="w-6 h-6 md:w-8 md:h-8 lg:w-8 lg:h-8"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- Learning Objectives -->
+                <div class="flex flex-col gap-4">
+                  <h4
+                    class="font-bold text-black text-lg md:text-xl lg:text-xl leading-tight"
+                  >
+                    This workshop will teach
+                  </h4>
+                  <div class="flex flex-col gap-4 md:gap-6">
+                    <!-- Learning Item 1 -->
+                    <div class="flex gap-2 md:gap-2 lg:gap-2 items-center">
+                      <img
+                        src="/public/assets/icons/check.svg"
+                        alt="Check"
+                        class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                      />
+                      <span
+                        class="capitalize font-semibold text-black text-base md:text-lg lg:text-lg"
+                      >
+                        Crafting Compelling Messages
+                      </span>
+                    </div>
+                    <!-- Learning Item 2 -->
+                    <div class="flex gap-2 md:gap-2 lg:gap-2 items-center">
+                      <img
+                        src="/public/assets/icons/check.svg"
+                        alt="Check"
+                        class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                      />
+                      <span
+                        class="capitalize font-semibold text-black text-base md:text-lg lg:text-lg"
+                      >
+                        Enhancing Delivery Skills
+                      </span>
+                    </div>
+                    <!-- Learning Item 3 -->
+                    <div class="flex gap-2 md:gap-2 lg:gap-2 items-center">
+                      <img
+                        src="/public/assets/icons/check.svg"
+                        alt="Check"
+                        class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                      />
+                      <span
+                        class="capitalize font-semibold text-black text-base md:text-lg lg:text-lg"
+                      >
+                        Engaging Your Audience
+                      </span>
+                    </div>
+                    <!-- Learning Item 4 -->
+                    <div class="flex gap-2 md:gap-2 lg:gap-2 items-center">
+                      <img
+                        src="/public/assets/icons/check.svg"
+                        alt="Check"
+                        class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                      />
+                      <span
+                        class="capitalize font-semibold text-black text-base md:text-lg lg:text-lg"
+                      >
+                        Practical Exercises
+                      </span>
+                    </div>
+                    <!-- Learning Item 5 -->
+                    <div class="flex gap-2 md:gap-2 lg:gap-2 items-center">
+                      <img
+                        src="/public/assets/icons/check.svg"
+                        alt="Check"
+                        class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                      />
+                      <span
+                        class="capitalize font-semibold text-black text-base md:text-lg lg:text-lg"
+                      >
+                        Personal Development Plan
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Location Details -->
+                <div class="flex flex-col gap-4">
+                  <h4
+                    class="font-bold text-black text-lg md:text-xl lg:text-xl leading-tight"
+                  >
+                    Location Details
+                  </h4>
+                  <div
+                    class="bg-white border border-[#e6e7eb] rounded-lg md:rounded-xl lg:rounded-xl p-3 md:p-4 lg:p-5 flex flex-col gap-3 md:gap-4 lg:gap-4"
+                  >
+                    <!-- Location Image -->
+                    <div class="w-full">
+                      <img
+                        src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
+                        alt="Location"
+                        class="w-full h-32 md:h-40 lg:h-48 object-cover rounded-lg md:rounded-xl lg:rounded-xl"
+                      />
+                    </div>
+                    <!-- Location Info -->
+                    <div class="flex flex-col gap-2 md:gap-3 lg:gap-3">
+                      <p
+                        class="font-medium text-[#757c98] text-sm md:text-base lg:text-base leading-relaxed"
+                      >
+                        101 Cendrawasih Road, Melati, Bandung Wetan, Bandung,
+                        West Java, 40116, Indonesia
+                      </p>
+                      <a
+                        href="#"
+                        class="font-semibold text-[#fc9b4c] text-sm md:text-base lg:text-base hover:underline"
+                      >
+                        View in Google Maps
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Show More/Less Toggle Button -->
+          <label
+            for="workshop-details-accordion"
+            class="flex gap-1.5 md:gap-2 lg:gap-2 items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
+          >
+            <span
+              class="capitalize font-semibold text-black text-base md:text-lg lg:text-lg"
+            >
+              Show More
+            </span>
+            <svg
+              class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 text-black peer-checked:rotate-180 transition-transform duration-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </label>
+        </div>
+        <div class="flex flex-col gap-4 md:gap-6 lg:gap-8">
+          <!-- Status Success + Booking Details Combined Card -->
+          <div
+            class="bg-white rounded-2xl md:rounded-3xl lg:rounded-3xl overflow-hidden"
+          >
+            <!-- Yellow banner -->
+            <div
+              class="bg-[#D4EAE8] p-4 md:p-6 lg:p-8 flex gap-3 md:gap-4 lg:gap-4 items-center"
+            >
+              <div
+                class="bg-green p-3 md:p-4 lg:p-4 rounded-full flex-shrink-0"
+              >
+                <img
+                  src="/public/assets/icons/empty-wallet-tick.svg"
+                  alt="Timer icon"
+                  class="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"
+                />
+              </div>
+              <div class="flex flex-col gap-px md:gap-1">
+                <h3
+                  class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                >
+                  Status Payment Success!
+                </h3>
+                <p
+                  class="font-medium text-[#58938E] text-sm md:text-base lg:text-base"
+                >
+                  Your order is confirmed. We appreciate your patience.
+                </p>
+              </div>
+            </div>
+            <!-- Booking details body -->
+            <div class="p-4 md:p-6 lg:p-8 flex flex-col gap-6 md:gap-8">
+              <h2
+                class="capitalize font-bold text-black text-lg md:text-xl lg:text-xl leading-tight"
+              >
+                Booking Details
+              </h2>
+              <div
+                class="bg-white border border-[#e6e7eb] rounded-xl md:rounded-2xl lg:rounded-2xl p-4 md:p-6 lg:p-6 flex flex-col gap-4 md:gap-4"
+              >
+                <div class="flex justify-between items-center">
+                  <span
+                    class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                    >Booking ID</span
+                  >
+                  <span
+                    class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                    >H4L04CT1VE</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span
+                    class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                    >Quantity</span
+                  >
+                  <span
+                    class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                    >2</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span
+                    class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                    >Price</span
+                  >
+                  <span
+                    class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                    >Rp160.000</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span
+                    class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                    >PPN 11%</span
+                  >
+                  <span
+                    class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                    >Rp5.000</span
+                  >
+                </div>
+                <div
+                  class="border-t border-[#e6e7eb] my-2 md:my-2 lg:my-2"
+                ></div>
+                <div class="flex justify-between items-center">
+                  <span
+                    class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                    >Total Price</span
+                  >
+                  <span
+                    class="font-semibold text-[#eb5757] text-base md:text-lg lg:text-lg"
+                    >Rp319.680</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Status Pending + Booking Details Combined Card -->
+          <div
+            class="bg-white rounded-2xl md:rounded-3xl lg:rounded-3xl overflow-hidden"
+          >
+            <!-- Yellow banner -->
+            <div
+              class="bg-[#fdf6e4] p-4 md:p-6 lg:p-8 flex gap-3 md:gap-4 lg:gap-4 items-center"
+            >
+              <div
+                class="bg-[#fed049] p-3 md:p-4 lg:p-4 rounded-full flex-shrink-0"
+              >
+                <img
+                  src="/public/assets/icons/empty-wallet-time.svg"
+                  alt="Timer icon"
+                  class="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"
+                />
+              </div>
+              <div class="flex flex-col gap-px md:gap-1">
+                <h3
+                  class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                >
+                  Status Payment Pending!
+                </h3>
+                <p
+                  class="font-medium text-[#b4a476] text-sm md:text-base lg:text-base"
+                >
+                  Your order is pending. Please wait a few minutes for review.
+                </p>
+              </div>
+            </div>
+            <!-- Booking details body -->
+            <div class="p-4 md:p-6 lg:p-8 flex flex-col gap-6 md:gap-8">
+              <h2
+                class="capitalize font-bold text-black text-lg md:text-xl lg:text-xl leading-tight"
+              >
+                Booking Details
+              </h2>
+              <div
+                class="bg-white border border-[#e6e7eb] rounded-xl md:rounded-2xl lg:rounded-2xl p-4 md:p-6 lg:p-6 flex flex-col gap-4 md:gap-4"
+              >
+                <div class="flex justify-between items-center">
+                  <span
+                    class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                    >Booking ID</span
+                  >
+                  <span
+                    class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                    >H4L04CT1VE</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span
+                    class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                    >Quantity</span
+                  >
+                  <span
+                    class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                    >2</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span
+                    class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                    >Price</span
+                  >
+                  <span
+                    class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                    >Rp160.000</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span
+                    class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                    >PPN 11%</span
+                  >
+                  <span
+                    class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                    >Rp5.000</span
+                  >
+                </div>
+                <div
+                  class="border-t border-[#e6e7eb] my-2 md:my-2 lg:my-2"
+                ></div>
+                <div class="flex justify-between items-center">
+                  <span
+                    class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                    >Total Price</span
+                  >
+                  <span
+                    class="font-semibold text-[#eb5757] text-base md:text-lg lg:text-lg"
+                    >Rp319.680</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Status Failed + Booking Details Combined Card -->
+          <div
+            class="bg-white rounded-2xl md:rounded-3xl lg:rounded-3xl overflow-hidden"
+          >
+            <!-- Yellow banner -->
+            <div
+              class="bg-[#FEE3E3] p-4 md:p-6 lg:p-8 flex gap-3 md:gap-4 lg:gap-4 items-center"
+            >
+              <div class="bg-red p-3 md:p-4 lg:p-4 rounded-full flex-shrink-0">
+                <img
+                  src="/public/assets/icons/empty-wallet-remove.svg"
+                  alt="Timer icon"
+                  class="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"
+                />
+              </div>
+              <div class="flex flex-col gap-px md:gap-1">
+                <h3
+                  class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                >
+                  Status Payment Failed!
+                </h3>
+                <p
+                  class="font-medium text-[#B77878] text-sm md:text-base lg:text-base"
+                >
+                  Your order was unsuccessful. Please attempt again.
+                </p>
+              </div>
+            </div>
+            <!-- Booking details body -->
+            <div class="p-4 md:p-6 lg:p-8 flex flex-col gap-6 md:gap-8">
+              <h2
+                class="capitalize font-bold text-black text-lg md:text-xl lg:text-xl leading-tight"
+              >
+                Booking Details
+              </h2>
+              <div
+                class="bg-white border border-[#e6e7eb] rounded-xl md:rounded-2xl lg:rounded-2xl p-4 md:p-6 lg:p-6 flex flex-col gap-4 md:gap-4"
+              >
+                <div class="flex justify-between items-center">
+                  <span
+                    class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                    >Booking ID</span
+                  >
+                  <span
+                    class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                    >H4L04CT1VE</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span
+                    class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                    >Quantity</span
+                  >
+                  <span
+                    class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                    >2</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span
+                    class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                    >Price</span
+                  >
+                  <span
+                    class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                    >Rp160.000</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span
+                    class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                    >PPN 11%</span
+                  >
+                  <span
+                    class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                    >Rp5.000</span
+                  >
+                </div>
+                <div
+                  class="border-t border-[#e6e7eb] my-2 md:my-2 lg:my-2"
+                ></div>
+                <div class="flex justify-between items-center">
+                  <span
+                    class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                    >Total Price</span
+                  >
+                  <span
+                    class="font-semibold text-[#eb5757] text-base md:text-lg lg:text-lg"
+                    >Rp319.680</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Your Bank Account Card -->
+          <div
+            class="bg-white rounded-2xl md:rounded-3xl lg:rounded-3xl p-4 md:p-6 lg:p-8 flex flex-col gap-6 md:gap-8"
+          >
+            <h2
+              class="capitalize font-bold text-black text-lg md:text-xl lg:text-xl leading-tight"
+            >
+              Your Bank Account
+            </h2>
+            <div class="flex flex-col gap-4 md:gap-6 lg:gap-6">
+              <!-- Bank Name -->
+              <div class="flex flex-col gap-3 md:gap-4 lg:gap-4">
+                <span
+                  class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                  >Bank Name</span
+                >
+                <div
+                  class="bg-[#fbfbfb] rounded-xl md:rounded-2xl lg:rounded-2xl p-3 md:p-4 lg:p-4 flex gap-2 md:gap-2 lg:gap-2 items-center"
+                >
+                  <img
+                    src="/public/assets/icons/bank-black.svg"
+                    alt="Bank icon"
+                    class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                  />
+                  <span
+                    class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                    >Bank Central Asia</span
+                  >
+                </div>
+              </div>
+              <!-- Full Name -->
+              <div class="flex flex-col gap-3 md:gap-4 lg:gap-4">
+                <span
+                  class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                  >Full Name</span
+                >
+                <div
+                  class="bg-[#fbfbfb] rounded-xl md:rounded-2xl lg:rounded-2xl p-3 md:p-4 lg:p-4 flex gap-2 md:gap-2 lg:gap-2 items-center"
+                >
+                  <img
+                    src="/public/assets/icons/profile-circle-black.svg"
+                    alt="Profile icon"
+                    class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                  />
+                  <span
+                    class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                    >Bimore Universe</span
+                  >
+                </div>
+              </div>
+              <!-- Bank Account Number -->
+              <div class="flex flex-col gap-3 md:gap-4 lg:gap-4">
+                <span
+                  class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                  >Bank account number</span
+                >
+                <div
+                  class="bg-[#fbfbfb] rounded-xl md:rounded-2xl lg:rounded-2xl p-3 md:p-4 lg:p-4 flex gap-2 md:gap-2 lg:gap-2 items-center"
+                >
+                  <img
+                    src="/public/assets/icons/card-edit-black.svg"
+                    alt="Card edit icon"
+                    class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                  />
+                  <span
+                    class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                    >0200 2910 4260</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Attendants Details Section (hardcoded content) -->
+          <div
+            class="bg-white rounded-2xl md:rounded-3xl lg:rounded-3xl p-4 md:p-6 lg:p-8 flex flex-col gap-4 md:gap-6"
+          >
+            <h2
+              class="capitalize font-bold text-black text-lg md:text-xl lg:text-xl leading-tight"
+            >
+              Attendants Details
+            </h2>
+            <div class="flex flex-col gap-4 md:gap-4">
+              <!-- Attendant 1 - Accordion (open) -->
+              <div class="border border-[#e6e7eb] rounded-2xl overflow-hidden">
+                <input
+                  type="checkbox"
+                  id="attendant-1"
+                  class="hidden peer"
+                  checked
+                />
+                <label
+                  for="attendant-1"
+                  class="flex items-center justify-between p-4 md:p-6 cursor-pointer hover:bg-gray-50 transition-colors"
+                >
+                  <h3
+                    class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                  >
+                    Attendants 1
+                  </h3>
+                  <svg
+                    class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 text-[#757c98] peer-checked:rotate-180 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </label>
+                <div
+                  class="grid grid-rows-[0fr] peer-checked:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-in-out"
+                >
+                  <div class="overflow-hidden">
+                    <div
+                      class="p-4 md:p-6 border-t border-[#e6e7eb] flex flex-col gap-4 md:gap-4 lg:gap-4"
+                    >
+                      <div class="flex flex-col gap-3 md:gap-4 lg:gap-4">
+                        <span
+                          class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                          >Full Name</span
+                        >
+                        <div
+                          class="bg-[#fbfbfb] rounded-xl md:rounded-2xl lg:rounded-2xl p-3 md:p-4 lg:p-4 flex gap-2 items-center"
+                        >
+                          <img
+                            src="/public/assets/icons/profile-circle-black.svg"
+                            alt="Profile icon"
+                            class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                          />
+                          <span
+                            class="font-medium text-black text-base md:text-lg lg:text-lg"
+                            >Probably Nabila</span
+                          >
+                        </div>
+                      </div>
+                      <div class="flex flex-col gap-3 md:gap-4 lg:gap-4">
+                        <span
+                          class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                          >Occupation</span
+                        >
+                        <div
+                          class="bg-[#fbfbfb] rounded-xl md:rounded-2xl lg:rounded-2xl p-3 md:p-4 lg:p-4 flex gap-2 items-center"
+                        >
+                          <img
+                            src="/public/assets/icons/briefcase-black.svg"
+                            alt="Briefcase icon"
+                            class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                          />
+                          <span
+                            class="font-medium text-black text-base md:text-lg lg:text-lg"
+                            >Students</span
+                          >
+                        </div>
+                      </div>
+                      <div class="flex flex-col gap-3 md:gap-4 lg:gap-4">
+                        <span
+                          class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                          >Email Address</span
+                        >
+                        <div
+                          class="bg-[#fbfbfb] rounded-xl md:rounded-2xl lg:rounded-2xl p-3 md:p-4 lg:p-4 flex gap-2 items-center"
+                        >
+                          <img
+                            src="/public/assets/icons/sms-black.svg"
+                            alt="Email icon"
+                            class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                          />
+                          <span
+                            class="font-medium text-black text-base md:text-lg lg:text-lg"
+                            >Nabnab@gmail.com</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Attendant 2 - Accordion (closed) -->
+              <div class="border border-[#e6e7eb] rounded-2xl overflow-hidden">
+                <input type="checkbox" id="attendant-2" class="hidden peer" />
+                <label
+                  for="attendant-2"
+                  class="flex items-center justify-between p-4 md:p-6 cursor-pointer hover:bg-gray-50 transition-colors"
+                >
+                  <h3
+                    class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                  >
+                    Attendants 2
+                  </h3>
+                  <svg
+                    class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 text-[#757c98] peer-checked:rotate-180 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </label>
+                <div
+                  class="grid grid-rows-[0fr] peer-checked:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-in-out"
+                >
+                  <div class="overflow-hidden">
+                    <div
+                      class="p-4 md:p-6 border-t border-[#e6e7eb] flex flex-col gap-4 md:gap-4 lg:gap-4"
+                    >
+                      <div class="flex flex-col gap-3 md:gap-4 lg:gap-4">
+                        <span
+                          class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                          >Full Name</span
+                        >
+                        <div
+                          class="bg-[#fbfbfb] rounded-xl md:rounded-2xl lg:rounded-2xl p-3 md:p-4 lg:p-4 flex gap-2 items-center"
+                        >
+                          <img
+                            src="/public/assets/icons/profile-circle-black.svg"
+                            alt="Profile icon"
+                            class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                          />
+                          <span
+                            class="font-medium text-black text-base md:text-lg lg:text-lg"
+                            >Bima Raditya</span
+                          >
+                        </div>
+                      </div>
+                      <div class="flex flex-col gap-3 md:gap-4 lg:gap-4">
+                        <span
+                          class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                          >Occupation</span
+                        >
+                        <div
+                          class="bg-[#fbfbfb] rounded-xl md:rounded-2xl lg:rounded-2xl p-3 md:p-4 lg:p-4 flex gap-2 items-center"
+                        >
+                          <img
+                            src="/public/assets/icons/briefcase-black.svg"
+                            alt="Briefcase icon"
+                            class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                          />
+                          <span
+                            class="font-medium text-black text-base md:text-lg lg:text-lg"
+                            >Marketing Specialist</span
+                          >
+                        </div>
+                      </div>
+                      <div class="flex flex-col gap-3 md:gap-4 lg:gap-4">
+                        <span
+                          class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                          >Email Address</span
+                        >
+                        <div
+                          class="bg-[#fbfbfb] rounded-xl md:rounded-2xl lg:rounded-2xl p-3 md:p-4 lg:p-4 flex gap-2 items-center"
+                        >
+                          <img
+                            src="/public/assets/icons/sms-black.svg"
+                            alt="Email icon"
+                            class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                          />
+                          <span
+                            class="font-medium text-black text-base md:text-lg lg:text-lg"
+                            >bima.raditya@example.com</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="bg-white">
+      <div
+        class="max-w-1176 mx-auto padding-section py-8 md:py-12 lg:py-[52px]"
+      >
+        <!-- Logo and Description Section -->
+        <div
+          class="flex flex-col gap-4 items-center justify-center mb-6 lg:mb-8"
+        >
+          <!-- Logo -->
+          <div class="flex gap-2 items-center justify-center">
+            <div class="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10">
+              <img
+                src="/public/assets/icons/logo.svg"
+                alt="AKTIV Logo"
+                class="w-full h-full"
+              />
+            </div>
+            <h2
+              class="font-bold text-xl md:text-2xl lg:text-2xl text-black leading-none"
+            >
+              AKTIV
+            </h2>
+          </div>
+          <!-- Description -->
+          <p
+            class="font-medium text-sm md:text-base lg:text-base text-gray text-center max-w-md"
+          >
+            Leading online workshop platform for professional skill development.
+          </p>
+        </div>
+        <!-- Divider Line -->
+        <div class="w-full h-px bg-gray-200 mb-6 lg:mb-8"></div>
+        <!-- Bottom Section -->
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8 lg:gap-12"
+        >
+          <!-- Navigation Links -->
+          <div
+            class="flex flex-wrap gap-4 md:gap-6 items-center justify-center md:justify-start"
+          >
+            <a
+              href="/src/pages#workshop"
+              class="font-medium text-sm md:text-base lg:text-base text-gray hover:text-black transition-colors"
+            >
+              Workshop
+            </a>
+            <a
+              href="/src/pages#community"
+              class="font-medium text-sm md:text-base lg:text-base text-gray hover:text-black transition-colors"
+            >
+              Community
+            </a>
+            <a
+              href="/src/pages#testimone"
+              class="font-medium text-sm md:text-base lg:text-base text-gray hover:text-black transition-colors"
+            >
+              Testimone
+            </a>
+            <a
+              href="/src/pages/view-booking"
+              class="font-medium text-sm md:text-base lg:text-base text-gray hover:text-black transition-colors"
+            >
+              Check My Booking
+            </a>
+          </div>
+          <!-- Copyright and Social Links -->
+          <div
+            class="flex flex-col flex-wrap justify-end md:flex-row items-center gap-4 md:gap-6 lg:gap-12"
+          >
+            <!-- Copyright -->
+            <p
+              class="font-medium text-sm md:text-base lg:text-base text-gray text-center md:text-left"
+            >
+              © 2025 Aktiv Copyright
+            </p>
+            <!-- Social Links -->
+            <div class="flex gap-4 md:gap-6 items-center">
+              <a
+                href="#"
+                class="font-medium text-sm md:text-base lg:text-base text-gray hover:text-black transition-colors"
+              >
+                Instagram
+              </a>
+              <a
+                href="#"
+                class="font-medium text-sm md:text-base lg:text-base text-gray hover:text-black transition-colors"
+              >
+                Facebook
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="/src/scripts/copy-bank-number.js"></script>
+    <script src="/src/scripts/read-more-description.js"></script>
+    <script src="/src/scripts/testimonial-slider.js"></script>
+    <script src="/src/scripts/navbar.js"></script>
+    <script src="/src/scripts/upload-file.js"></script>
+    <!-- <script src="/src/scripts/copy-bank-number.js"></script>
+    <script src="/src/scripts/read-more-description.js"></script>
+    <script src="/src/scripts/testimonial-slider.js"></script>
+    <script src="/src/scripts/navbar.js"></script>
+    <script src="/src/scripts/upload-file.js"></script> -->
+  </body>
+</html>

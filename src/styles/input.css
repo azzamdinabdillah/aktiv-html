@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-blue: #0268fb;
+  --color-light-blue: #dfefff;
+  --color-orange: #fc9b4c;
+  --color-black: #09093c;
+  --color-green: #1f8a70;
+  --color-gray: #757c98;
+  --color-gray-blue: #f5f6fb;
+  --color-red: #EB5757;
+
+  --font-grotesk: "Space Grotesk", sans-serif;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-padding-top: 100px; /* tinggi navbar */
+}
+
+.blue-gradient {
+  background: linear-gradient(0deg, #5b8ce9 0%, #4eb6f5 100%);
+}
+
+.blue-gradient-darker {
+  background: linear-gradient(278deg, #5b8ce9 0%, #4eb6f5 50%, #5b8ce9 100%);
+}
+
+.gap-24 {
+  @apply gap-4 md:gap-5 lg:gap-6;
+}
+
+.gap-32 {
+  @apply gap-4 md:gap-6 lg:gap-8;
+}
+
+.text-24 {
+  @apply text-lg md:text-xl lg:text-2xl;
+}
+
+.text-32 {
+  @apply text-2xl md:text-3xl lg:text-[32px];
+}
+
+.text-18 {
+  @apply text-base lg:text-lg;
+}
+
+.text-16 {
+  @apply text-sm md:text-base;
+}
+
+.rounded-6 {
+  @apply rounded-lg md:rounded-xl lg:rounded-2xl;
+}
+
+.rounded-4 {
+  @apply rounded-md md:rounded-lg lg:rounded-xl;
+}
+
+.max-w-1176 {
+  @apply max-w-[1176px];
+}
+
+.padding-section {
+  @apply px-4 md:px-8 xl:px-0 py-6 md:py-8;
+}
+
+/* Universal hover effects */
+.hover-blue-effect {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.hover-blue-effect:hover {
+  @apply transform -translate-y-2 shadow-lg;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: #0268fb;
+}
+
+.hover-blue-effect:hover .hover-icon-scale {
+  @apply transform scale-110;
+}
+
+.hover-blue-effect:hover .hover-text-blue {
+  @apply text-blue;
+}
+
+.hover-icon-scale {
+  @apply transition-transform duration-300 ease-in-out;
+}
+
+.hover-text-blue {
+  @apply transition-colors duration-300 ease-in-out;
+}
+
+/* Hide scrollbar for horizontal scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}

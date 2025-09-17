@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/public/assets/icons/logo.svg"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content="Astro v5.13.7" />
+    <link rel="stylesheet" href="/src/styles/global.css" />
+    <link rel="stylesheet" href="/src/styles/output.css" />
+    <title>Booking Workshop | Activ Workshop</title>
+  </head>
+  <body>
+    <div class="bg-gray-blue">
+      <div
+        class="bg-white fixed top-0 left-0 right-0 z-40 transition-transform duration-300 ease-in-out"
+        id="navbar"
+      >
+        <div
+          class="flex justify-between items-center px-6 py-5 lg:p-[32px] max-w-[1216px] xl:px-0 mx-auto"
+        >
+          <!-- Logo Section -->
+          <a href="/src/pages" class="flex gap-2 items-center">
+            <img
+              src="/public/assets/icons/logo.svg"
+              alt="Logo"
+              class="w-8 h-8 lg:w-10 lg:h-10"
+            />
+            <p class="text-24 font-bold text-black">AKTIV</p>
+          </a>
+          <!-- Desktop Navigation -->
+          <div class="hidden lg:flex gap-32 text-16 font-medium text-gray">
+            <a
+              href="/src/pages/view-booking"
+              class="hover:text-black transition-colors"
+              >View My Booking</a
+            >
+            <a
+              href="/src/pages#workshop"
+              class="hover:text-black transition-colors"
+              >Workshop</a
+            >
+            <a
+              href="/src/pages#community"
+              class="hover:text-black transition-colors"
+              >Community</a
+            >
+            <a
+              href="/src/pages#testimone"
+              class="hover:text-black transition-colors"
+              >Testimone</a
+            >
+          </div>
+          <!-- Desktop Contact Button -->
+          <div class="hidden lg:block">
+            <button
+              type="button"
+              class="flex items-center cursor-pointer gap-3 rounded-full justify-center transition-all duration-500 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-95 relative z-10 disabled:cursor-not-allowed disabled:!bg-[#E6E7EB] disabled:!shadow-none bg-green text-white hover:bg-green-600 hover:shadow-2xl hover:shadow-green-500/50 relative overflow-hidden group before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700 text-16 font-semibold px-4 h-[40px] md:px-6 md:h-[48px]"
+            >
+              <span class="relative z-10 flex items-center gap-2 md:gap-3">
+                Contact CS
+                <img
+                  src="/public/assets/icons/wa.svg"
+                  alt="Phone Call"
+                  class="w-5 h-5 lg:w-6 lg:h-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+              /></span>
+            </button>
+          </div>
+          <!-- Mobile Hamburger Button -->
+          <button
+            id="mobile-menu-button"
+            class="lg:hidden flex flex-col gap-1 p-2"
+            aria-label="Toggle mobile menu"
+          >
+            <span
+              class="w-6 h-0.5 bg-black transition-all duration-300"
+              id="line1"
+            ></span>
+            <span
+              class="w-6 h-0.5 bg-black transition-all duration-300"
+              id="line2"
+            ></span>
+            <span
+              class="w-6 h-0.5 bg-black transition-all duration-300"
+              id="line3"
+            ></span>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Drawer Backdrop -->
+      <div
+        id="drawer-backdrop"
+        class="fixed inset-0 z-50 lg:hidden bg-black/40 backdrop-blur-sm opacity-0 transition-opacity duration-300 ease-in-out pointer-events-none"
+      ></div>
+      <!-- Mobile Drawer Content -->
+      <div
+        id="mobile-drawer"
+        class="fixed inset-y-0 left-0 z-50 lg:hidden w-72 max-w-[80vw] h-full bg-white shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out"
+      >
+        <!-- Drawer Header -->
+        <div class="flex justify-between items-center px-8 py-6">
+          <div class="flex gap-3 items-center">
+            <img
+              src="/public/assets/icons/logo.svg"
+              alt="Logo"
+              class="w-7 h-7"
+            />
+            <p class="text-xl font-bold text-black">AKTIV</p>
+          </div>
+          <button
+            id="close-drawer-button"
+            class="p-1.5 hover:bg-gray-50 rounded-lg transition-colors duration-200"
+            aria-label="Close menu"
+          >
+            <svg
+              class="w-5 h-5 text-gray-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <!-- Drawer Navigation -->
+        <nav class="px-8 pb-8">
+          <div class="flex flex-col space-y-1">
+            <a
+              href="/src/pages/view-booking"
+              class="text-lg font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 py-3 px-4 rounded-lg"
+            >
+              View My Booking
+            </a>
+            <a
+              href="/src/pages#workshop"
+              class="text-lg font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 py-3 px-4 rounded-lg"
+            >
+              Workshop
+            </a>
+            <a
+              href="/src/pages#community"
+              class="text-lg font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 py-3 px-4 rounded-lg"
+            >
+              Community
+            </a>
+            <a
+              href="/src/pages#testimone"
+              class="text-lg font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 py-3 px-4 rounded-lg"
+            >
+              Testimone
+            </a>
+          </div>
+        </nav>
+        <!-- Drawer Footer -->
+        <div class="absolute bottom-8 left-8 right-8">
+          <button
+            type="button"
+            class="flex items-center cursor-pointer gap-3 rounded-full justify-center transition-all duration-500 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-95 relative z-10 disabled:cursor-not-allowed disabled:!bg-[#E6E7EB] disabled:!shadow-none bg-green text-white hover:bg-green-600 hover:shadow-2xl hover:shadow-green-500/50 relative overflow-hidden group before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700 text-16 font-semibold px-4 h-[43px] md:px-6 md:h-[56px] w-full"
+          >
+            <span class="relative z-10 flex items-center gap-2 md:gap-3">
+              Contact CS
+              <img
+                src="/public/assets/icons/wa.svg"
+                alt="Phone Call"
+                class="w-6 h-6 lg:w-7 lg:h-7 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+            /></span>
+          </button>
+        </div>
+      </div>
+      <section class="relative w-full blue-gradient px-4">
+        <div
+          class="relative z-10 flex flex-col items-center justify-center w-full pt-[120px] md:pt-[130px] lg:pt-[176px] pb-10 md:pb-12 lg:pb-16"
+        >
+          <!-- Title -->
+          <h1
+            class="text-32 text-white text-center mb-1.5 leading-tight font-bold"
+          >
+            View Your Booking
+          </h1>
+          <!-- Subtitle -->
+          <p class="text-white text-16 text-center">
+            Enter the booking code sent to your email to check the status of
+            your booking.
+          </p>
+          <!-- Breadcrumb -->
+          <div class="mt-8 md:mt-14 lg:mt-16 w-full">
+            <!-- Mobile Layout: Using Input Components -->
+            <div
+              class="md:hidden w-full mx-auto bg-white rounded-2xl py-6 px-5"
+            >
+              <div class="flex flex-col gap-4">
+                <!-- Booking ID Input -->
+                <div
+                  class="flex flex-col gap-2 md:gap-3 lg:gap-4 w-full w-full"
+                >
+                  <label
+                    for="input-dwn6dohvm"
+                    class="capitalize font-medium text-gray text-sm md:text-base lg:text-base leading-tight"
+                  >
+                    Booking ID <span class="text-red">*</span>
+                  </label>
+                  <div
+                    class="bg-[#fbfbfb] border border-transparent rounded-lg md:rounded-xl lg:rounded-xl flex items-center gap-2 md:gap-3 lg:gap-2 p-3 md:p-4 lg:p-4 transition-all duration-300 ease-in-out focus-within:border-gray focus-within:bg-white cursor-text"
+                  >
+                    <div
+                      class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6"
+                    >
+                      <img
+                        src="/public/assets/icons/receipt-black.svg"
+                        alt="Icon"
+                        class="w-full h-full object-contain"
+                      />
+                    </div>
+                    <input
+                      type="text"
+                      id="input-dwn6dohvm"
+                      placeholder="Enter your booking ID"
+                      required
+                      class="flex-1 bg-transparent border-none outline-none font-medium text-black text-18 w-full placeholder:text-gray placeholder:text-18 placeholder:font-medium"
+                    />
+                  </div>
+                </div>
+                <!-- Phone Number Input -->
+                <div
+                  class="flex flex-col gap-2 md:gap-3 lg:gap-4 w-full w-full"
+                >
+                  <label
+                    for="input-zkse4yhpp"
+                    class="capitalize font-medium text-gray text-sm md:text-base lg:text-base leading-tight"
+                  >
+                    Phone Number <span class="text-red">*</span>
+                  </label>
+                  <div
+                    class="bg-[#fbfbfb] border border-transparent rounded-lg md:rounded-xl lg:rounded-xl flex items-center gap-2 md:gap-3 lg:gap-2 p-3 md:p-4 lg:p-4 transition-all duration-300 ease-in-out focus-within:border-gray focus-within:bg-white cursor-text"
+                  >
+                    <div
+                      class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6"
+                    >
+                      <img
+                        src="/public/assets/icons/call-black.svg"
+                        alt="Icon"
+                        class="w-full h-full object-contain"
+                      />
+                    </div>
+                    <input
+                      type="tel"
+                      id="input-zkse4yhpp"
+                      placeholder="Enter your phone number"
+                      required
+                      class="flex-1 bg-transparent border-none outline-none font-medium text-black text-18 w-full placeholder:text-gray placeholder:text-18 placeholder:font-medium"
+                    />
+                  </div>
+                </div>
+                <!-- Button -->
+                <div class="w-full mt-2">
+                  <a href="/src/pages/details-booking">
+                    <button
+                      type="button"
+                      class="flex items-center cursor-pointer gap-3 rounded-full justify-center transition-all duration-500 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-95 relative z-10 disabled:cursor-not-allowed disabled:!bg-[#E6E7EB] disabled:!shadow-none bg-orange text-white hover:bg-orange-600 hover:shadow-2xl hover:shadow-orange-500/50 relative overflow-hidden group before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700 text-18 font-semibold px-4 md:px-6 h-[45px] md:h-[56px] md:px-8 lg:h-[64px] w-full"
+                    >
+                      <span
+                        class="relative z-10 flex items-center gap-2 md:gap-3"
+                        ><img
+                          src="/public/assets/icons/search-normal.svg"
+                          alt="Icon"
+                          class="w-5 h-5 md:w-7 md:h-7 lg:w-8 lg:h-8 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+                        />
+                        View My Booking
+                      </span>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- Desktop Layout: Original Design -->
+            <div class="hidden md:block w-full max-w-1176 mx-auto px-5 xl:px-0">
+              <div
+                class="bg-white rounded-full pl-6 py-3 pr-3 lg:pl-8 lg:py-3 flex items-center gap-4 lg:gap-6"
+              >
+                <!-- Booking ID Input -->
+                <div class="flex items-center gap-2 lg:gap-2 flex-1">
+                  <div class="w-7 h-7 lg:w-8 lg:h-8 flex-shrink-0">
+                    <img
+                      src="/public/assets/icons/receipt-black.svg"
+                      alt="Receipt icon"
+                      class="w-full h-full"
+                    />
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <input
+                      type="text"
+                      placeholder="Booking ID"
+                      class="w-full bg-transparent border-none outline-none text-base lg:text-lg font-semibold text-[#09093c] placeholder:text-[#09093c] capitalize"
+                    />
+                  </div>
+                </div>
+                <!-- Vertical Divider -->
+                <div class="w-px h-6 lg:h-8 bg-gray-300 flex-shrink-0"></div>
+                <!-- Phone Number Input -->
+                <div class="flex items-center gap-2 lg:gap-2 flex-1">
+                  <div class="w-7 h-7 lg:w-8 lg:h-8 flex-shrink-0">
+                    <img
+                      src="/public/assets/icons/call-black.svg"
+                      alt="Call icon"
+                      class="w-full h-full"
+                    />
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <input
+                      type="tel"
+                      placeholder="Phone No"
+                      class="w-full bg-transparent border-none outline-none text-base lg:text-lg font-semibold text-[#09093c] placeholder:text-[#09093c] capitalize"
+                    />
+                  </div>
+                </div>
+                <!-- Button -->
+                <div class="flex-shrink-0">
+                  <a href="/src/pages/details-booking">
+                    <button
+                      type="button"
+                      class="flex items-center cursor-pointer gap-3 rounded-full justify-center transition-all duration-500 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-95 relative z-10 disabled:cursor-not-allowed disabled:!bg-[#E6E7EB] disabled:!shadow-none bg-orange text-white hover:bg-orange-600 hover:shadow-2xl hover:shadow-orange-500/50 relative overflow-hidden group before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700 text-16 font-semibold px-4 h-[43px] md:px-6 md:h-[56px]"
+                    >
+                      <span
+                        class="relative z-10 flex items-center gap-2 md:gap-3"
+                        ><img
+                          src="/public/assets/icons/search-normal.svg"
+                          alt="Icon"
+                          class="w-6 h-6 lg:w-7 lg:h-7 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+                        />
+                        View My Booking
+                      </span>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="py-3 md:py-5 lg:py-[68px]">
+        <section class="padding-section" id="community">
+          <div class="max-w-1176 mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-8 md:mb-10 lg:mb-12">
+              <h2 class="text-32 font-black text-black mb-0 !font-grotesk">
+                Get acquainted with us! 🙌🏻
+              </h2>
+            </div>
+            <!-- Benefits Grid -->
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-10 lg:mb-12"
+            >
+              <div
+                class="hover-blue-effect bg-white p-4 md:p-5 lg:p-6 rounded-2xl lg:rounded-3xl border border-gray-200"
+              >
+                <div class="flex gap-3 mb-3 items-center">
+                  <div
+                    class="hover-icon-scale flex-shrink-0 w-12 h-12 md:w-14 md:h-14"
+                  >
+                    <img
+                      src="/public/assets/icons/plus-1.svg"
+                      alt="In-Depth Learning from Experts Instructor"
+                      class="w-full h-full object-contain"
+                    />
+                  </div>
+                  <h3
+                    class="hover-text-blue text-18 font-semibold text-black leading-relaxed flex-1"
+                  >
+                    In-Depth Learning from Experts Instructor
+                  </h3>
+                </div>
+                <p class="text-16 font-medium text-gray leading-relaxed">
+                  We feature instructors with strong field-specific expertise.
+                </p>
+              </div>
+              <div
+                class="hover-blue-effect bg-white p-4 md:p-5 lg:p-6 rounded-2xl lg:rounded-3xl border border-gray-200"
+              >
+                <div class="flex gap-3 mb-3 items-center">
+                  <div
+                    class="hover-icon-scale flex-shrink-0 w-12 h-12 md:w-14 md:h-14"
+                  >
+                    <img
+                      src="/public/assets/icons/plus-2.svg"
+                      alt="Tangible Results"
+                      class="w-full h-full object-contain"
+                    />
+                  </div>
+                  <h3
+                    class="hover-text-blue text-18 font-semibold text-black leading-relaxed flex-1"
+                  >
+                    Tangible Results
+                  </h3>
+                </div>
+                <p class="text-16 font-medium text-gray leading-relaxed">
+                  Our students are highly engaged and supportive of our
+                  community.
+                </p>
+              </div>
+              <div
+                class="hover-blue-effect bg-white p-4 md:p-5 lg:p-6 rounded-2xl lg:rounded-3xl border border-gray-200"
+              >
+                <div class="flex gap-3 mb-3 items-center">
+                  <div
+                    class="hover-icon-scale flex-shrink-0 w-12 h-12 md:w-14 md:h-14"
+                  >
+                    <img
+                      src="/public/assets/icons/plus-3.svg"
+                      alt="Supportive Learning Environment"
+                      class="w-full h-full object-contain"
+                    />
+                  </div>
+                  <h3
+                    class="hover-text-blue text-18 font-semibold text-black leading-relaxed flex-1"
+                  >
+                    Supportive Learning Environment
+                  </h3>
+                </div>
+                <p class="text-16 font-medium text-gray leading-relaxed">
+                  We feature instructors with strong field-specific expertise.
+                </p>
+              </div>
+              <div
+                class="hover-blue-effect bg-white p-4 md:p-5 lg:p-6 rounded-2xl lg:rounded-3xl border border-gray-200"
+              >
+                <div class="flex gap-3 mb-3 items-center">
+                  <div
+                    class="hover-icon-scale flex-shrink-0 w-12 h-12 md:w-14 md:h-14"
+                  >
+                    <img
+                      src="/public/assets/icons/plus-4.svg"
+                      alt="Community Support"
+                      class="w-full h-full object-contain"
+                    />
+                  </div>
+                  <h3
+                    class="hover-text-blue text-18 font-semibold text-black leading-relaxed flex-1"
+                  >
+                    Community Support
+                  </h3>
+                </div>
+                <p class="text-16 font-medium text-gray leading-relaxed">
+                  We feature instructors with strong field-specific expertise.
+                </p>
+              </div>
+              <div
+                class="hover-blue-effect bg-white p-4 md:p-5 lg:p-6 rounded-2xl lg:rounded-3xl border border-gray-200"
+              >
+                <div class="flex gap-3 mb-3 items-center">
+                  <div
+                    class="hover-icon-scale flex-shrink-0 w-12 h-12 md:w-14 md:h-14"
+                  >
+                    <img
+                      src="/public/assets/icons/plus-5.svg"
+                      alt="Networking Opportunities With Other"
+                      class="w-full h-full object-contain"
+                    />
+                  </div>
+                  <h3
+                    class="hover-text-blue text-18 font-semibold text-black leading-relaxed flex-1"
+                  >
+                    Networking Opportunities With Other
+                  </h3>
+                </div>
+                <p class="text-16 font-medium text-gray leading-relaxed">
+                  We feature instructors with strong field-specific expertise.
+                </p>
+              </div>
+              <div
+                class="hover-blue-effect bg-white p-4 md:p-5 lg:p-6 rounded-2xl lg:rounded-3xl border border-gray-200"
+              >
+                <div class="flex gap-3 mb-3 items-center">
+                  <div
+                    class="hover-icon-scale flex-shrink-0 w-12 h-12 md:w-14 md:h-14"
+                  >
+                    <img
+                      src="/public/assets/icons/plus-6.svg"
+                      alt="Learning Flexibility"
+                      class="w-full h-full object-contain"
+                    />
+                  </div>
+                  <h3
+                    class="hover-text-blue text-18 font-semibold text-black leading-relaxed flex-1"
+                  >
+                    Learning Flexibility
+                  </h3>
+                </div>
+                <p class="text-16 font-medium text-gray leading-relaxed">
+                  We offer a variety of workshops that you can learn from every
+                  day.
+                </p>
+              </div>
+            </div>
+            <!-- CTA Button -->
+            <div class="text-center">
+              <a
+                href="#"
+                class="flex items-center cursor-pointer gap-3 rounded-full justify-center transition-all duration-500 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-95 relative z-10 disabled:cursor-not-allowed disabled:!bg-[#E6E7EB] disabled:!shadow-none bg-orange text-white hover:bg-orange-600 hover:shadow-2xl hover:shadow-orange-500/50 relative overflow-hidden group before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700 text-16 font-semibold px-4 h-[43px] md:px-6 md:h-[56px] inline-flex items-center gap-3"
+                ><span class="relative z-10 flex items-center gap-2 md:gap-3">
+                  Learn More
+                  <img
+                    src="/public/assets/icons/white-orange-arrow-right.svg"
+                    alt="Icon"
+                    class="w-6 h-6 lg:w-7 lg:h-7 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3" /></span
+              ></a>
+            </div>
+          </div>
+        </section>
+      </div>
+      <footer class="bg-white">
+        <div
+          class="max-w-1176 mx-auto padding-section py-8 md:py-12 lg:py-[52px]"
+        >
+          <!-- Logo and Description Section -->
+          <div
+            class="flex flex-col gap-4 items-center justify-center mb-6 lg:mb-8"
+          >
+            <!-- Logo -->
+            <div class="flex gap-2 items-center justify-center">
+              <div class="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10">
+                <img
+                  src="/public/assets/icons/logo.svg"
+                  alt="AKTIV Logo"
+                  class="w-full h-full"
+                />
+              </div>
+              <h2
+                class="font-bold text-xl md:text-2xl lg:text-2xl text-black leading-none"
+              >
+                AKTIV
+              </h2>
+            </div>
+            <!-- Description -->
+            <p
+              class="font-medium text-sm md:text-base lg:text-base text-gray text-center max-w-md"
+            >
+              Leading online workshop platform for professional skill
+              development.
+            </p>
+          </div>
+          <!-- Divider Line -->
+          <div class="w-full h-px bg-gray-200 mb-6 lg:mb-8"></div>
+          <!-- Bottom Section -->
+          <div
+            class="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8 lg:gap-12"
+          >
+            <!-- Navigation Links -->
+            <div
+              class="flex flex-wrap gap-4 md:gap-6 items-center justify-center md:justify-start"
+            >
+              <a
+                href="/src/pages#workshop"
+                class="font-medium text-sm md:text-base lg:text-base text-gray hover:text-black transition-colors"
+              >
+                Workshop
+              </a>
+              <a
+                href="/src/pages#community"
+                class="font-medium text-sm md:text-base lg:text-base text-gray hover:text-black transition-colors"
+              >
+                Community
+              </a>
+              <a
+                href="/src/pages#testimone"
+                class="font-medium text-sm md:text-base lg:text-base text-gray hover:text-black transition-colors"
+              >
+                Testimone
+              </a>
+              <a
+                href="/src/pages/view-booking"
+                class="font-medium text-sm md:text-base lg:text-base text-gray hover:text-black transition-colors"
+              >
+                Check My Booking
+              </a>
+            </div>
+            <!-- Copyright and Social Links -->
+            <div
+              class="flex flex-col flex-wrap justify-end md:flex-row items-center gap-4 md:gap-6 lg:gap-12"
+            >
+              <!-- Copyright -->
+              <p
+                class="font-medium text-sm md:text-base lg:text-base text-gray text-center md:text-left"
+              >
+                © 2025 Aktiv Copyright
+              </p>
+              <!-- Social Links -->
+              <div class="flex gap-4 md:gap-6 items-center">
+                <a
+                  href="#"
+                  class="font-medium text-sm md:text-base lg:text-base text-gray hover:text-black transition-colors"
+                >
+                  Instagram
+                </a>
+                <a
+                  href="#"
+                  class="font-medium text-sm md:text-base lg:text-base text-gray hover:text-black transition-colors"
+                >
+                  Facebook
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="/src/scripts/copy-bank-number.js"></script>
+    <script src="/src/scripts/read-more-description.js"></script>
+    <script src="/src/scripts/testimonial-slider.js"></script>
+    <script src="/src/scripts/navbar.js"></script>
+    <script src="/src/scripts/upload-file.js"></script>
+    <!-- <script src="/src/scripts/copy-bank-number.js"></script>
+    <script src="/src/scripts/read-more-description.js"></script>
+    <script src="/src/scripts/testimonial-slider.js"></script>
+    <script src="/src/scripts/navbar.js"></script>
+    <script src="/src/scripts/upload-file.js"></script> -->
+  </body>
+</html>

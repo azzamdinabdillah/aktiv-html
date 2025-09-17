@@ -1,0 +1,1533 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/public/assets/icons/logo.svg"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content="Astro v5.13.7" />
+    <link rel="stylesheet" href="/src/styles/global.css" />
+    <link rel="stylesheet" href="/src/styles/output.css" />
+    <title>Workshop by Category | Activ Workshop</title>
+  </head>
+  <body>
+    <div
+      class="bg-white fixed top-0 left-0 right-0 z-40 transition-transform duration-300 ease-in-out"
+      id="navbar"
+    >
+      <div
+        class="flex justify-between items-center px-6 py-5 lg:p-[32px] max-w-[1216px] xl:px-0 mx-auto"
+      >
+        <!-- Logo Section -->
+        <a href="/src/pages" class="flex gap-2 items-center">
+          <img
+            src="/public/assets/icons/logo.svg"
+            alt="Logo"
+            class="w-8 h-8 lg:w-10 lg:h-10"
+          />
+          <p class="text-24 font-bold text-black">AKTIV</p>
+        </a>
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:flex gap-32 text-16 font-medium text-gray">
+          <a
+            href="/src/pages/view-booking"
+            class="hover:text-black transition-colors"
+            >View My Booking</a
+          >
+          <a
+            href="/src/pages#workshop"
+            class="hover:text-black transition-colors"
+            >Workshop</a
+          >
+          <a
+            href="/src/pages#community"
+            class="hover:text-black transition-colors"
+            >Community</a
+          >
+          <a
+            href="/src/pages#testimone"
+            class="hover:text-black transition-colors"
+            >Testimone</a
+          >
+        </div>
+        <!-- Desktop Contact Button -->
+        <div class="hidden lg:block">
+          <button
+            type="button"
+            class="flex items-center cursor-pointer gap-3 rounded-full justify-center transition-all duration-500 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-95 relative z-10 disabled:cursor-not-allowed disabled:!bg-[#E6E7EB] disabled:!shadow-none bg-green text-white hover:bg-green-600 hover:shadow-2xl hover:shadow-green-500/50 relative overflow-hidden group before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700 text-16 font-semibold px-4 h-[40px] md:px-6 md:h-[48px]"
+          >
+            <span class="relative z-10 flex items-center gap-2 md:gap-3">
+              Contact CS
+              <img
+                src="/public/assets/icons/wa.svg"
+                alt="Phone Call"
+                class="w-5 h-5 lg:w-6 lg:h-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+            /></span>
+          </button>
+        </div>
+        <!-- Mobile Hamburger Button -->
+        <button
+          id="mobile-menu-button"
+          class="lg:hidden flex flex-col gap-1 p-2"
+          aria-label="Toggle mobile menu"
+        >
+          <span
+            class="w-6 h-0.5 bg-black transition-all duration-300"
+            id="line1"
+          ></span>
+          <span
+            class="w-6 h-0.5 bg-black transition-all duration-300"
+            id="line2"
+          ></span>
+          <span
+            class="w-6 h-0.5 bg-black transition-all duration-300"
+            id="line3"
+          ></span>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Drawer Backdrop -->
+    <div
+      id="drawer-backdrop"
+      class="fixed inset-0 z-50 lg:hidden bg-black/40 backdrop-blur-sm opacity-0 transition-opacity duration-300 ease-in-out pointer-events-none"
+    ></div>
+    <!-- Mobile Drawer Content -->
+    <div
+      id="mobile-drawer"
+      class="fixed inset-y-0 left-0 z-50 lg:hidden w-72 max-w-[80vw] h-full bg-white shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out"
+    >
+      <!-- Drawer Header -->
+      <div class="flex justify-between items-center px-8 py-6">
+        <div class="flex gap-3 items-center">
+          <img src="/public/assets/icons/logo.svg" alt="Logo" class="w-7 h-7" />
+          <p class="text-xl font-bold text-black">AKTIV</p>
+        </div>
+        <button
+          id="close-drawer-button"
+          class="p-1.5 hover:bg-gray-50 rounded-lg transition-colors duration-200"
+          aria-label="Close menu"
+        >
+          <svg
+            class="w-5 h-5 text-gray-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <!-- Drawer Navigation -->
+      <nav class="px-8 pb-8">
+        <div class="flex flex-col space-y-1">
+          <a
+            href="/src/pages/view-booking"
+            class="text-lg font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 py-3 px-4 rounded-lg"
+          >
+            View My Booking
+          </a>
+          <a
+            href="/src/pages#workshop"
+            class="text-lg font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 py-3 px-4 rounded-lg"
+          >
+            Workshop
+          </a>
+          <a
+            href="/src/pages#community"
+            class="text-lg font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 py-3 px-4 rounded-lg"
+          >
+            Community
+          </a>
+          <a
+            href="/src/pages#testimone"
+            class="text-lg font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 py-3 px-4 rounded-lg"
+          >
+            Testimone
+          </a>
+        </div>
+      </nav>
+      <!-- Drawer Footer -->
+      <div class="absolute bottom-8 left-8 right-8">
+        <button
+          type="button"
+          class="flex items-center cursor-pointer gap-3 rounded-full justify-center transition-all duration-500 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-95 relative z-10 disabled:cursor-not-allowed disabled:!bg-[#E6E7EB] disabled:!shadow-none bg-green text-white hover:bg-green-600 hover:shadow-2xl hover:shadow-green-500/50 relative overflow-hidden group before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700 text-16 font-semibold px-4 h-[43px] md:px-6 md:h-[56px] w-full"
+        >
+          <span class="relative z-10 flex items-center gap-2 md:gap-3">
+            Contact CS
+            <img
+              src="/public/assets/icons/wa.svg"
+              alt="Phone Call"
+              class="w-6 h-6 lg:w-7 lg:h-7 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+          /></span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="bg-gray-blue px-4 md:px-6 pb-4 md:pb-6 lg:pb-[100px] pt-[120px] md:pt-[140px] lg:pt-[160px]"
+    >
+      <div class="max-w-1176 mx-auto flex flex-col gap-9">
+        <!-- Header Section -->
+        <div class="text-center flex-col flex items-center gap-1">
+          <h1
+            class="text-2xl md:text-3xl lg:text-[32px] font-black text-[#09093c] mb-2 md:mb-3 lg:mb-4 capitalize"
+          >
+            Self Improvement (9)
+          </h1>
+          <div class="text-black">
+            <nav
+              class="flex items-center gap-2 text-16 flex-wrap justify-center"
+            >
+              <div class="flex items-center gap-2">
+                <a
+                  href="/aktiv"
+                  class="hover:text-gray-200 transition-colors duration-200 capitalize"
+                >
+                  Homepage
+                </a>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="">&gt;</span>
+                <span class="capitalize font-semibold">
+                  Category Workshop
+                </span>
+              </div>
+            </nav>
+          </div>
+        </div>
+        <!-- Workshop Grid -->
+        <div
+          class="flex gap-4 md:gap-6 lg:gap-6 overflow-x-auto md:overflow-x-visible pb-4 md:pb-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:auto-rows-fr lg:auto-rows-fr scrollbar-hide"
+        >
+          <a
+            href="/src/pages/workshop-details"
+            class="block flex-shrink-0 md:flex-shrink"
+          >
+            <div
+              class="bg-white rounded-[12px] md:rounded-[20px] lg:rounded-[24px] p-3 md:p-5 lg:p-6 w-full max-w-[250px] md:max-w-full flex flex-col gap-4 md:gap-6 lg:gap-9 shadow-sm hover:shadow-xl hover:shadow-purple/15 hover:-translate-y-2 transition-all duration-300 ease-out flex-shrink-0 cursor-pointer group relative overflow-hidden border border-transparent hover:border-blue"
+            >
+              <!-- Instructor Info & Workshop Image -->
+              <div class="flex flex-col gap-3 md:gap-4 lg:gap-[18px] w-full">
+                <!-- Instructor Profile -->
+                <div
+                  class="flex gap-2 md:gap-3 items-center w-full relative z-10"
+                >
+                  <div
+                    class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full overflow-hidden flex-shrink-0"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+                      alt="Megamore S Qie"
+                      class="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105"
+                    />
+                  </div>
+                  <div class="flex flex-col gap-0.5 flex-grow min-w-0">
+                    <h3
+                      class="font-semibold text-[#09093c] text-sm md:text-base lg:text-lg leading-tight transition-colors duration-300 ease-out group-hover:text-blue"
+                    >
+                      Megamore S Qie
+                    </h3>
+                    <p
+                      class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base leading-tight transition-colors duration-300 ease-out"
+                    >
+                      Motivator Instructor
+                    </p>
+                  </div>
+                </div>
+                <!-- Workshop Image with Status Badge -->
+                <div
+                  class="relative w-full h-[140px] md:h-[170px] lg:h-[200px] rounded-[8px] md:rounded-[12px] lg:rounded-[16px] overflow-hidden transition-all duration-300 ease-out"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=200&fit=crop"
+                    alt="Mastering the Art of Public Speaking: Practical Tips and Powerful Techniques"
+                    class="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105"
+                  />
+                  <!-- Status Badge -->
+                  <div
+                    class="absolute top-2 left-2 md:top-3 md:left-3 bg-[#1f8a70] flex items-center gap-1 px-3 py-2 md:px-4 md:py-2.5 lg:px-5 lg:py-3 rounded-[100px] transition-all duration-300 ease-out z-10 w-max"
+                  >
+                    <img
+                      src="/public/assets/icons/badge-workshop-card-open.svg"
+                      alt="open"
+                      class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                    />
+                    <span
+                      class="font-semibold text-white text-xs md:text-sm lg:text-base whitespace-nowrap"
+                    >
+                      OPEN
+                    </span>
+                  </div>
+                </div>
+                <!-- Workshop Details -->
+                <div class="flex flex-col gap-1.5 md:gap-2 w-full">
+                  <!-- Date and Time -->
+                  <div class="flex gap-2 md:gap-3 items-start w-full">
+                    <div class="flex items-center gap-1">
+                      <img
+                        src="/public/assets/icons/calendar-2.svg"
+                        alt="Calendar"
+                        class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                      />
+                      <span
+                        class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base capitalize"
+                      >
+                        Tue, 30 May 2024
+                      </span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                      <img
+                        src="/public/assets/icons/timer.svg"
+                        alt="Time"
+                        class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                      />
+                      <span
+                        class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base capitalize"
+                      >
+                        9:30 AM
+                      </span>
+                    </div>
+                  </div>
+                  <!-- Workshop Title -->
+                  <h2
+                    class="font-semibold text-[#09093c] text-base md:text-lg lg:text-xl leading-[1.3] md:leading-[1.35] lg:leading-[1.4] capitalize line-clamp-2 transition-colors duration-300 ease-out group-hover:text-blue"
+                  >
+                    Mastering the Art of Public Speaking: Practical Tips and
+                    Powerful Techniques
+                  </h2>
+                  <!-- Category -->
+                  <p
+                    class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base transition-colors duration-300 ease-out"
+                  >
+                    Self Improvement
+                  </p>
+                </div>
+              </div>
+              <!-- Price and Action Button -->
+              <div class="flex gap-3 md:gap-4 lg:gap-6 items-center w-full">
+                <!-- Price -->
+                <div class="flex items-center gap-1 md:gap-1.5 flex-grow">
+                  <span
+                    class="font-semibold text-[#eb5757] text-lg md:text-xl lg:text-2xl whitespace-nowrap transition-colors duration-300 ease-out group-hover:text-blue"
+                  >
+                    Rp160.000
+                  </span>
+                  <span
+                    class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base whitespace-nowrap transition-colors duration-300 ease-out"
+                  >
+                    /person
+                  </span>
+                </div>
+                <!-- Action Button -->
+                <div
+                  class="bg-[rgba(252,155,76,0.09)] flex items-center justify-center p-2 md:p-2.5 lg:p-3 rounded-[100px] transition-all duration-300 ease-out cursor-pointer group-hover:bg-purple/25 group-hover:scale-105"
+                >
+                  <div
+                    class="bg-orange w-5 h-5 md:w-5.5 md:h-5.5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center transition-all duration-300 ease-out group-hover:bg-purple-600 group-hover:scale-110"
+                  >
+                    <span
+                      class="font-bold text-white text-sm md:text-sm lg:text-base leading-none transition-all duration-300 ease-out"
+                    >
+                      &gt;
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div> </a
+          ><a
+            href="/src/pages/workshop-details"
+            class="block flex-shrink-0 md:flex-shrink"
+          >
+            <div
+              class="bg-white rounded-[12px] md:rounded-[20px] lg:rounded-[24px] p-3 md:p-5 lg:p-6 w-full max-w-[250px] md:max-w-full flex flex-col gap-4 md:gap-6 lg:gap-9 shadow-sm hover:shadow-xl hover:shadow-purple/15 hover:-translate-y-2 transition-all duration-300 ease-out flex-shrink-0 cursor-pointer group relative overflow-hidden border border-transparent hover:border-blue"
+            >
+              <!-- Instructor Info & Workshop Image -->
+              <div class="flex flex-col gap-3 md:gap-4 lg:gap-[18px] w-full">
+                <!-- Instructor Profile -->
+                <div
+                  class="flex gap-2 md:gap-3 items-center w-full relative z-10"
+                >
+                  <div
+                    class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full overflow-hidden flex-shrink-0"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=150&h=150&fit=crop&crop=face"
+                      alt="Laura Tomb"
+                      class="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105"
+                    />
+                  </div>
+                  <div class="flex flex-col gap-0.5 flex-grow min-w-0">
+                    <h3
+                      class="font-semibold text-[#09093c] text-sm md:text-base lg:text-lg leading-tight transition-colors duration-300 ease-out group-hover:text-blue"
+                    >
+                      Laura Tomb
+                    </h3>
+                    <p
+                      class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base leading-tight transition-colors duration-300 ease-out"
+                    >
+                      Psychology Instructor
+                    </p>
+                  </div>
+                </div>
+                <!-- Workshop Image with Status Badge -->
+                <div
+                  class="relative w-full h-[140px] md:h-[170px] lg:h-[200px] rounded-[8px] md:rounded-[12px] lg:rounded-[16px] overflow-hidden transition-all duration-300 ease-out"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop"
+                    alt="Enhancing Leadership Skills: Comprehensive Strategies for Developing Future Managers in a Dynamic Workplace"
+                    class="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105"
+                  />
+                  <!-- Status Badge -->
+                  <div
+                    class="absolute top-2 left-2 md:top-3 md:left-3 bg-[#eb5757] flex items-center gap-1 px-3 py-2 md:px-4 md:py-2.5 lg:px-5 lg:py-3 rounded-[100px] transition-all duration-300 ease-out z-10 w-max"
+                  >
+                    <img
+                      src="/public/assets/icons/badge-workshop-card-closed.svg"
+                      alt="closed"
+                      class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                    />
+                    <span
+                      class="font-semibold text-white text-xs md:text-sm lg:text-base whitespace-nowrap"
+                    >
+                      CLOSED
+                    </span>
+                  </div>
+                </div>
+                <!-- Workshop Details -->
+                <div class="flex flex-col gap-1.5 md:gap-2 w-full">
+                  <!-- Date and Time -->
+                  <div class="flex gap-2 md:gap-3 items-start w-full">
+                    <div class="flex items-center gap-1">
+                      <img
+                        src="/public/assets/icons/calendar-2.svg"
+                        alt="Calendar"
+                        class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                      />
+                      <span
+                        class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base capitalize"
+                      >
+                        Fri, 24 May 2024
+                      </span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                      <img
+                        src="/public/assets/icons/timer.svg"
+                        alt="Time"
+                        class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                      />
+                      <span
+                        class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base capitalize"
+                      >
+                        9:30 AM
+                      </span>
+                    </div>
+                  </div>
+                  <!-- Workshop Title -->
+                  <h2
+                    class="font-semibold text-[#09093c] text-base md:text-lg lg:text-xl leading-[1.3] md:leading-[1.35] lg:leading-[1.4] capitalize line-clamp-2 transition-colors duration-300 ease-out group-hover:text-blue"
+                  >
+                    Enhancing Leadership Skills: Comprehensive Strategies for
+                    Developing Future Managers in a Dynamic Workplace
+                  </h2>
+                  <!-- Category -->
+                  <p
+                    class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base transition-colors duration-300 ease-out"
+                  >
+                    Self Improvement
+                  </p>
+                </div>
+              </div>
+              <!-- Price and Action Button -->
+              <div class="flex gap-3 md:gap-4 lg:gap-6 items-center w-full">
+                <!-- Price -->
+                <div class="flex items-center gap-1 md:gap-1.5 flex-grow">
+                  <span
+                    class="font-semibold text-[#eb5757] text-lg md:text-xl lg:text-2xl whitespace-nowrap transition-colors duration-300 ease-out group-hover:text-blue"
+                  >
+                    Rp160.000
+                  </span>
+                  <span
+                    class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base whitespace-nowrap transition-colors duration-300 ease-out"
+                  >
+                    /person
+                  </span>
+                </div>
+                <!-- Action Button -->
+                <div
+                  class="bg-[rgba(252,155,76,0.09)] flex items-center justify-center p-2 md:p-2.5 lg:p-3 rounded-[100px] transition-all duration-300 ease-out cursor-pointer group-hover:bg-purple/25 group-hover:scale-105"
+                >
+                  <div
+                    class="bg-orange w-5 h-5 md:w-5.5 md:h-5.5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center transition-all duration-300 ease-out group-hover:bg-purple-600 group-hover:scale-110"
+                  >
+                    <span
+                      class="font-bold text-white text-sm md:text-sm lg:text-base leading-none transition-all duration-300 ease-out"
+                    >
+                      &gt;
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div> </a
+          ><a
+            href="/src/pages/workshop-details"
+            class="block flex-shrink-0 md:flex-shrink"
+          >
+            <div
+              class="bg-white rounded-[12px] md:rounded-[20px] lg:rounded-[24px] p-3 md:p-5 lg:p-6 w-full max-w-[250px] md:max-w-full flex flex-col gap-4 md:gap-6 lg:gap-9 shadow-sm hover:shadow-xl hover:shadow-purple/15 hover:-translate-y-2 transition-all duration-300 ease-out flex-shrink-0 cursor-pointer group relative overflow-hidden border border-transparent hover:border-blue"
+            >
+              <!-- Instructor Info & Workshop Image -->
+              <div class="flex flex-col gap-3 md:gap-4 lg:gap-[18px] w-full">
+                <!-- Instructor Profile -->
+                <div
+                  class="flex gap-2 md:gap-3 items-center w-full relative z-10"
+                >
+                  <div
+                    class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full overflow-hidden flex-shrink-0"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+                      alt="Marqeuz Braun"
+                      class="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105"
+                    />
+                  </div>
+                  <div class="flex flex-col gap-0.5 flex-grow min-w-0">
+                    <h3
+                      class="font-semibold text-[#09093c] text-sm md:text-base lg:text-lg leading-tight transition-colors duration-300 ease-out group-hover:text-blue"
+                    >
+                      Marqeuz Braun
+                    </h3>
+                    <p
+                      class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base leading-tight transition-colors duration-300 ease-out"
+                    >
+                      Motivator Instructor
+                    </p>
+                  </div>
+                </div>
+                <!-- Workshop Image with Status Badge -->
+                <div
+                  class="relative w-full h-[140px] md:h-[170px] lg:h-[200px] rounded-[8px] md:rounded-[12px] lg:rounded-[16px] overflow-hidden transition-all duration-300 ease-out"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=200&fit=crop"
+                    alt="Time Management Techniques for Startup Entrepreneurs: Balancing Innovation and Efficiency in a Competitive Market"
+                    class="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105"
+                  />
+                  <!-- Status Badge -->
+                  <div
+                    class="absolute top-2 left-2 md:top-3 md:left-3 bg-orange flex items-center gap-1 px-3 py-2 md:px-4 md:py-2.5 lg:px-5 lg:py-3 rounded-[100px] transition-all duration-300 ease-out z-10 w-max"
+                  >
+                    <img
+                      src="/public/assets/icons/badge-workshop-card-started.svg"
+                      alt="started"
+                      class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                    />
+                    <span
+                      class="font-semibold text-white text-xs md:text-sm lg:text-base whitespace-nowrap"
+                    >
+                      STARTED
+                    </span>
+                  </div>
+                </div>
+                <!-- Workshop Details -->
+                <div class="flex flex-col gap-1.5 md:gap-2 w-full">
+                  <!-- Date and Time -->
+                  <div class="flex gap-2 md:gap-3 items-start w-full">
+                    <div class="flex items-center gap-1">
+                      <img
+                        src="/public/assets/icons/calendar-2.svg"
+                        alt="Calendar"
+                        class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                      />
+                      <span
+                        class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base capitalize"
+                      >
+                        Fri, 24 May 2024
+                      </span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                      <img
+                        src="/public/assets/icons/timer.svg"
+                        alt="Time"
+                        class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                      />
+                      <span
+                        class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base capitalize"
+                      >
+                        9:30 AM
+                      </span>
+                    </div>
+                  </div>
+                  <!-- Workshop Title -->
+                  <h2
+                    class="font-semibold text-[#09093c] text-base md:text-lg lg:text-xl leading-[1.3] md:leading-[1.35] lg:leading-[1.4] capitalize line-clamp-2 transition-colors duration-300 ease-out group-hover:text-blue"
+                  >
+                    Time Management Techniques for Startup Entrepreneurs:
+                    Balancing Innovation and Efficiency in a Competitive Market
+                  </h2>
+                  <!-- Category -->
+                  <p
+                    class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base transition-colors duration-300 ease-out"
+                  >
+                    Music
+                  </p>
+                </div>
+              </div>
+              <!-- Price and Action Button -->
+              <div class="flex gap-3 md:gap-4 lg:gap-6 items-center w-full">
+                <!-- Price -->
+                <div class="flex items-center gap-1 md:gap-1.5 flex-grow">
+                  <span
+                    class="font-semibold text-[#eb5757] text-lg md:text-xl lg:text-2xl whitespace-nowrap transition-colors duration-300 ease-out group-hover:text-blue"
+                  >
+                    Rp160.000
+                  </span>
+                  <span
+                    class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base whitespace-nowrap transition-colors duration-300 ease-out"
+                  >
+                    /person
+                  </span>
+                </div>
+                <!-- Action Button -->
+                <div
+                  class="bg-[rgba(252,155,76,0.09)] flex items-center justify-center p-2 md:p-2.5 lg:p-3 rounded-[100px] transition-all duration-300 ease-out cursor-pointer group-hover:bg-purple/25 group-hover:scale-105"
+                >
+                  <div
+                    class="bg-orange w-5 h-5 md:w-5.5 md:h-5.5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center transition-all duration-300 ease-out group-hover:bg-purple-600 group-hover:scale-110"
+                  >
+                    <span
+                      class="font-bold text-white text-sm md:text-sm lg:text-base leading-none transition-all duration-300 ease-out"
+                    >
+                      &gt;
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div> </a
+          ><a
+            href="/src/pages/workshop-details"
+            class="block flex-shrink-0 md:flex-shrink"
+          >
+            <div
+              class="bg-white rounded-[12px] md:rounded-[20px] lg:rounded-[24px] p-3 md:p-5 lg:p-6 w-full max-w-[250px] md:max-w-full flex flex-col gap-4 md:gap-6 lg:gap-9 shadow-sm hover:shadow-xl hover:shadow-purple/15 hover:-translate-y-2 transition-all duration-300 ease-out flex-shrink-0 cursor-pointer group relative overflow-hidden border border-transparent hover:border-blue"
+            >
+              <!-- Instructor Info & Workshop Image -->
+              <div class="flex flex-col gap-3 md:gap-4 lg:gap-[18px] w-full">
+                <!-- Instructor Profile -->
+                <div
+                  class="flex gap-2 md:gap-3 items-center w-full relative z-10"
+                >
+                  <div
+                    class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full overflow-hidden flex-shrink-0"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
+                      alt="Kruger Marv"
+                      class="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105"
+                    />
+                  </div>
+                  <div class="flex flex-col gap-0.5 flex-grow min-w-0">
+                    <h3
+                      class="font-semibold text-[#09093c] text-sm md:text-base lg:text-lg leading-tight transition-colors duration-300 ease-out group-hover:text-blue"
+                    >
+                      Kruger Marv
+                    </h3>
+                    <p
+                      class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base leading-tight transition-colors duration-300 ease-out"
+                    >
+                      Musician Instructor
+                    </p>
+                  </div>
+                </div>
+                <!-- Workshop Image with Status Badge -->
+                <div
+                  class="relative w-full h-[140px] md:h-[170px] lg:h-[200px] rounded-[8px] md:rounded-[12px] lg:rounded-[16px] overflow-hidden transition-all duration-300 ease-out"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=200&fit=crop"
+                    alt="Effective Communication for IT Professionals: Advanced Methods to Foster Team Collaboration and Project Success"
+                    class="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105"
+                  />
+                  <!-- Status Badge -->
+                  <div
+                    class="absolute top-2 left-2 md:top-3 md:left-3 bg-[#1f8a70] flex items-center gap-1 px-3 py-2 md:px-4 md:py-2.5 lg:px-5 lg:py-3 rounded-[100px] transition-all duration-300 ease-out z-10 w-max"
+                  >
+                    <img
+                      src="/public/assets/icons/badge-workshop-card-open.svg"
+                      alt="open"
+                      class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                    />
+                    <span
+                      class="font-semibold text-white text-xs md:text-sm lg:text-base whitespace-nowrap"
+                    >
+                      OPEN
+                    </span>
+                  </div>
+                </div>
+                <!-- Workshop Details -->
+                <div class="flex flex-col gap-1.5 md:gap-2 w-full">
+                  <!-- Date and Time -->
+                  <div class="flex gap-2 md:gap-3 items-start w-full">
+                    <div class="flex items-center gap-1">
+                      <img
+                        src="/public/assets/icons/calendar-2.svg"
+                        alt="Calendar"
+                        class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                      />
+                      <span
+                        class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base capitalize"
+                      >
+                        Fri, 24 May 2024
+                      </span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                      <img
+                        src="/public/assets/icons/timer.svg"
+                        alt="Time"
+                        class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                      />
+                      <span
+                        class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base capitalize"
+                      >
+                        9:30 AM
+                      </span>
+                    </div>
+                  </div>
+                  <!-- Workshop Title -->
+                  <h2
+                    class="font-semibold text-[#09093c] text-base md:text-lg lg:text-xl leading-[1.3] md:leading-[1.35] lg:leading-[1.4] capitalize line-clamp-2 transition-colors duration-300 ease-out group-hover:text-blue"
+                  >
+                    Effective Communication for IT Professionals: Advanced
+                    Methods to Foster Team Collaboration and Project Success
+                  </h2>
+                  <!-- Category -->
+                  <p
+                    class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base transition-colors duration-300 ease-out"
+                  >
+                    Self Improvement
+                  </p>
+                </div>
+              </div>
+              <!-- Price and Action Button -->
+              <div class="flex gap-3 md:gap-4 lg:gap-6 items-center w-full">
+                <!-- Price -->
+                <div class="flex items-center gap-1 md:gap-1.5 flex-grow">
+                  <span
+                    class="font-semibold text-[#eb5757] text-lg md:text-xl lg:text-2xl whitespace-nowrap transition-colors duration-300 ease-out group-hover:text-blue"
+                  >
+                    Rp160.000
+                  </span>
+                  <span
+                    class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base whitespace-nowrap transition-colors duration-300 ease-out"
+                  >
+                    /person
+                  </span>
+                </div>
+                <!-- Action Button -->
+                <div
+                  class="bg-[rgba(252,155,76,0.09)] flex items-center justify-center p-2 md:p-2.5 lg:p-3 rounded-[100px] transition-all duration-300 ease-out cursor-pointer group-hover:bg-purple/25 group-hover:scale-105"
+                >
+                  <div
+                    class="bg-orange w-5 h-5 md:w-5.5 md:h-5.5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center transition-all duration-300 ease-out group-hover:bg-purple-600 group-hover:scale-110"
+                  >
+                    <span
+                      class="font-bold text-white text-sm md:text-sm lg:text-base leading-none transition-all duration-300 ease-out"
+                    >
+                      &gt;
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div> </a
+          ><a
+            href="/src/pages/workshop-details"
+            class="block flex-shrink-0 md:flex-shrink"
+          >
+            <div
+              class="bg-white rounded-[12px] md:rounded-[20px] lg:rounded-[24px] p-3 md:p-5 lg:p-6 w-full max-w-[250px] md:max-w-full flex flex-col gap-4 md:gap-6 lg:gap-9 shadow-sm hover:shadow-xl hover:shadow-purple/15 hover:-translate-y-2 transition-all duration-300 ease-out flex-shrink-0 cursor-pointer group relative overflow-hidden border border-transparent hover:border-blue"
+            >
+              <!-- Instructor Info & Workshop Image -->
+              <div class="flex flex-col gap-3 md:gap-4 lg:gap-[18px] w-full">
+                <!-- Instructor Profile -->
+                <div
+                  class="flex gap-2 md:gap-3 items-center w-full relative z-10"
+                >
+                  <div
+                    class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full overflow-hidden flex-shrink-0"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+                      alt="Gabbi Noeeb"
+                      class="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105"
+                    />
+                  </div>
+                  <div class="flex flex-col gap-0.5 flex-grow min-w-0">
+                    <h3
+                      class="font-semibold text-[#09093c] text-sm md:text-base lg:text-lg leading-tight transition-colors duration-300 ease-out group-hover:text-blue"
+                    >
+                      Gabbi Noeeb
+                    </h3>
+                    <p
+                      class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base leading-tight transition-colors duration-300 ease-out"
+                    >
+                      Psychology Instructor
+                    </p>
+                  </div>
+                </div>
+                <!-- Workshop Image with Status Badge -->
+                <div
+                  class="relative w-full h-[140px] md:h-[170px] lg:h-[200px] rounded-[8px] md:rounded-[12px] lg:rounded-[16px] overflow-hidden transition-all duration-300 ease-out"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=200&fit=crop"
+                    alt="Building Confidence and Mastering Sales Techniques: A Complete Guide for Sales Professionals to Achieve Outstanding Results"
+                    class="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105"
+                  />
+                  <!-- Status Badge -->
+                  <div
+                    class="absolute top-2 left-2 md:top-3 md:left-3 bg-[#1f8a70] flex items-center gap-1 px-3 py-2 md:px-4 md:py-2.5 lg:px-5 lg:py-3 rounded-[100px] transition-all duration-300 ease-out z-10 w-max"
+                  >
+                    <img
+                      src="/public/assets/icons/badge-workshop-card-open.svg"
+                      alt="open"
+                      class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                    />
+                    <span
+                      class="font-semibold text-white text-xs md:text-sm lg:text-base whitespace-nowrap"
+                    >
+                      OPEN
+                    </span>
+                  </div>
+                </div>
+                <!-- Workshop Details -->
+                <div class="flex flex-col gap-1.5 md:gap-2 w-full">
+                  <!-- Date and Time -->
+                  <div class="flex gap-2 md:gap-3 items-start w-full">
+                    <div class="flex items-center gap-1">
+                      <img
+                        src="/public/assets/icons/calendar-2.svg"
+                        alt="Calendar"
+                        class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                      />
+                      <span
+                        class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base capitalize"
+                      >
+                        Fri, 24 May 2024
+                      </span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                      <img
+                        src="/public/assets/icons/timer.svg"
+                        alt="Time"
+                        class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                      />
+                      <span
+                        class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base capitalize"
+                      >
+                        9:30 AM
+                      </span>
+                    </div>
+                  </div>
+                  <!-- Workshop Title -->
+                  <h2
+                    class="font-semibold text-[#09093c] text-base md:text-lg lg:text-xl leading-[1.3] md:leading-[1.35] lg:leading-[1.4] capitalize line-clamp-2 transition-colors duration-300 ease-out group-hover:text-blue"
+                  >
+                    Building Confidence and Mastering Sales Techniques: A
+                    Complete Guide for Sales Professionals to Achieve
+                    Outstanding Results
+                  </h2>
+                  <!-- Category -->
+                  <p
+                    class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base transition-colors duration-300 ease-out"
+                  >
+                    Programming
+                  </p>
+                </div>
+              </div>
+              <!-- Price and Action Button -->
+              <div class="flex gap-3 md:gap-4 lg:gap-6 items-center w-full">
+                <!-- Price -->
+                <div class="flex items-center gap-1 md:gap-1.5 flex-grow">
+                  <span
+                    class="font-semibold text-[#eb5757] text-lg md:text-xl lg:text-2xl whitespace-nowrap transition-colors duration-300 ease-out group-hover:text-blue"
+                  >
+                    Rp160.000
+                  </span>
+                  <span
+                    class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base whitespace-nowrap transition-colors duration-300 ease-out"
+                  >
+                    /person
+                  </span>
+                </div>
+                <!-- Action Button -->
+                <div
+                  class="bg-[rgba(252,155,76,0.09)] flex items-center justify-center p-2 md:p-2.5 lg:p-3 rounded-[100px] transition-all duration-300 ease-out cursor-pointer group-hover:bg-purple/25 group-hover:scale-105"
+                >
+                  <div
+                    class="bg-orange w-5 h-5 md:w-5.5 md:h-5.5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center transition-all duration-300 ease-out group-hover:bg-purple-600 group-hover:scale-110"
+                  >
+                    <span
+                      class="font-bold text-white text-sm md:text-sm lg:text-base leading-none transition-all duration-300 ease-out"
+                    >
+                      &gt;
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div> </a
+          ><a
+            href="/src/pages/workshop-details"
+            class="block flex-shrink-0 md:flex-shrink"
+          >
+            <div
+              class="bg-white rounded-[12px] md:rounded-[20px] lg:rounded-[24px] p-3 md:p-5 lg:p-6 w-full max-w-[250px] md:max-w-full flex flex-col gap-4 md:gap-6 lg:gap-9 shadow-sm hover:shadow-xl hover:shadow-purple/15 hover:-translate-y-2 transition-all duration-300 ease-out flex-shrink-0 cursor-pointer group relative overflow-hidden border border-transparent hover:border-blue"
+            >
+              <!-- Instructor Info & Workshop Image -->
+              <div class="flex flex-col gap-3 md:gap-4 lg:gap-[18px] w-full">
+                <!-- Instructor Profile -->
+                <div
+                  class="flex gap-2 md:gap-3 items-center w-full relative z-10"
+                >
+                  <div
+                    class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full overflow-hidden flex-shrink-0"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=150&h=150&fit=crop&crop=face"
+                      alt="Raze Parker"
+                      class="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105"
+                    />
+                  </div>
+                  <div class="flex flex-col gap-0.5 flex-grow min-w-0">
+                    <h3
+                      class="font-semibold text-[#09093c] text-sm md:text-base lg:text-lg leading-tight transition-colors duration-300 ease-out group-hover:text-blue"
+                    >
+                      Raze Parker
+                    </h3>
+                    <p
+                      class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base leading-tight transition-colors duration-300 ease-out"
+                    >
+                      Musician Instructor
+                    </p>
+                  </div>
+                </div>
+                <!-- Workshop Image with Status Badge -->
+                <div
+                  class="relative w-full h-[140px] md:h-[170px] lg:h-[200px] rounded-[8px] md:rounded-[12px] lg:rounded-[16px] overflow-hidden transition-all duration-300 ease-out"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=400&h=200&fit=crop"
+                    alt="Continuous Learning Strategies for Teachers: Enhancing Personal Growth and Student Competencies in Modern Education"
+                    class="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105"
+                  />
+                  <!-- Status Badge -->
+                  <div
+                    class="absolute top-2 left-2 md:top-3 md:left-3 bg-[#1f8a70] flex items-center gap-1 px-3 py-2 md:px-4 md:py-2.5 lg:px-5 lg:py-3 rounded-[100px] transition-all duration-300 ease-out z-10 w-max"
+                  >
+                    <img
+                      src="/public/assets/icons/badge-workshop-card-open.svg"
+                      alt="open"
+                      class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                    />
+                    <span
+                      class="font-semibold text-white text-xs md:text-sm lg:text-base whitespace-nowrap"
+                    >
+                      OPEN
+                    </span>
+                  </div>
+                </div>
+                <!-- Workshop Details -->
+                <div class="flex flex-col gap-1.5 md:gap-2 w-full">
+                  <!-- Date and Time -->
+                  <div class="flex gap-2 md:gap-3 items-start w-full">
+                    <div class="flex items-center gap-1">
+                      <img
+                        src="/public/assets/icons/calendar-2.svg"
+                        alt="Calendar"
+                        class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                      />
+                      <span
+                        class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base capitalize"
+                      >
+                        Fri, 24 May 2024
+                      </span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                      <img
+                        src="/public/assets/icons/timer.svg"
+                        alt="Time"
+                        class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                      />
+                      <span
+                        class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base capitalize"
+                      >
+                        9:30 AM
+                      </span>
+                    </div>
+                  </div>
+                  <!-- Workshop Title -->
+                  <h2
+                    class="font-semibold text-[#09093c] text-base md:text-lg lg:text-xl leading-[1.3] md:leading-[1.35] lg:leading-[1.4] capitalize line-clamp-2 transition-colors duration-300 ease-out group-hover:text-blue"
+                  >
+                    Continuous Learning Strategies for Teachers: Enhancing
+                    Personal Growth and Student Competencies in Modern Education
+                  </h2>
+                  <!-- Category -->
+                  <p
+                    class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base transition-colors duration-300 ease-out"
+                  >
+                    Self Improvement
+                  </p>
+                </div>
+              </div>
+              <!-- Price and Action Button -->
+              <div class="flex gap-3 md:gap-4 lg:gap-6 items-center w-full">
+                <!-- Price -->
+                <div class="flex items-center gap-1 md:gap-1.5 flex-grow">
+                  <span
+                    class="font-semibold text-[#eb5757] text-lg md:text-xl lg:text-2xl whitespace-nowrap transition-colors duration-300 ease-out group-hover:text-blue"
+                  >
+                    Rp160.000
+                  </span>
+                  <span
+                    class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base whitespace-nowrap transition-colors duration-300 ease-out"
+                  >
+                    /person
+                  </span>
+                </div>
+                <!-- Action Button -->
+                <div
+                  class="bg-[rgba(252,155,76,0.09)] flex items-center justify-center p-2 md:p-2.5 lg:p-3 rounded-[100px] transition-all duration-300 ease-out cursor-pointer group-hover:bg-purple/25 group-hover:scale-105"
+                >
+                  <div
+                    class="bg-orange w-5 h-5 md:w-5.5 md:h-5.5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center transition-all duration-300 ease-out group-hover:bg-purple-600 group-hover:scale-110"
+                  >
+                    <span
+                      class="font-bold text-white text-sm md:text-sm lg:text-base leading-none transition-all duration-300 ease-out"
+                    >
+                      &gt;
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div> </a
+          ><a
+            href="/src/pages/workshop-details"
+            class="block flex-shrink-0 md:flex-shrink"
+          >
+            <div
+              class="bg-white rounded-[12px] md:rounded-[20px] lg:rounded-[24px] p-3 md:p-5 lg:p-6 w-full max-w-[250px] md:max-w-full flex flex-col gap-4 md:gap-6 lg:gap-9 shadow-sm hover:shadow-xl hover:shadow-purple/15 hover:-translate-y-2 transition-all duration-300 ease-out flex-shrink-0 cursor-pointer group relative overflow-hidden border border-transparent hover:border-blue"
+            >
+              <!-- Instructor Info & Workshop Image -->
+              <div class="flex flex-col gap-3 md:gap-4 lg:gap-[18px] w-full">
+                <!-- Instructor Profile -->
+                <div
+                  class="flex gap-2 md:gap-3 items-center w-full relative z-10"
+                >
+                  <div
+                    class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full overflow-hidden flex-shrink-0"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+                      alt="Andika Nerd"
+                      class="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105"
+                    />
+                  </div>
+                  <div class="flex flex-col gap-0.5 flex-grow min-w-0">
+                    <h3
+                      class="font-semibold text-[#09093c] text-sm md:text-base lg:text-lg leading-tight transition-colors duration-300 ease-out group-hover:text-blue"
+                    >
+                      Andika Nerd
+                    </h3>
+                    <p
+                      class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base leading-tight transition-colors duration-300 ease-out"
+                    >
+                      Musician Instructor
+                    </p>
+                  </div>
+                </div>
+                <!-- Workshop Image with Status Badge -->
+                <div
+                  class="relative w-full h-[140px] md:h-[170px] lg:h-[200px] rounded-[8px] md:rounded-[12px] lg:rounded-[16px] overflow-hidden transition-all duration-300 ease-out"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=200&fit=crop"
+                    alt="Creativity in Music: Developing New Ideas and Inspiration"
+                    class="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105"
+                  />
+                  <!-- Status Badge -->
+                  <div
+                    class="absolute top-2 left-2 md:top-3 md:left-3 bg-[#1f8a70] flex items-center gap-1 px-3 py-2 md:px-4 md:py-2.5 lg:px-5 lg:py-3 rounded-[100px] transition-all duration-300 ease-out z-10 w-max"
+                  >
+                    <img
+                      src="/public/assets/icons/badge-workshop-card-open.svg"
+                      alt="open"
+                      class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                    />
+                    <span
+                      class="font-semibold text-white text-xs md:text-sm lg:text-base whitespace-nowrap"
+                    >
+                      OPEN
+                    </span>
+                  </div>
+                </div>
+                <!-- Workshop Details -->
+                <div class="flex flex-col gap-1.5 md:gap-2 w-full">
+                  <!-- Date and Time -->
+                  <div class="flex gap-2 md:gap-3 items-start w-full">
+                    <div class="flex items-center gap-1">
+                      <img
+                        src="/public/assets/icons/calendar-2.svg"
+                        alt="Calendar"
+                        class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                      />
+                      <span
+                        class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base capitalize"
+                      >
+                        Sun, 26 May 2024
+                      </span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                      <img
+                        src="/public/assets/icons/timer.svg"
+                        alt="Time"
+                        class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                      />
+                      <span
+                        class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base capitalize"
+                      >
+                        9:30 AM
+                      </span>
+                    </div>
+                  </div>
+                  <!-- Workshop Title -->
+                  <h2
+                    class="font-semibold text-[#09093c] text-base md:text-lg lg:text-xl leading-[1.3] md:leading-[1.35] lg:leading-[1.4] capitalize line-clamp-2 transition-colors duration-300 ease-out group-hover:text-blue"
+                  >
+                    Creativity in Music: Developing New Ideas and Inspiration
+                  </h2>
+                  <!-- Category -->
+                  <p
+                    class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base transition-colors duration-300 ease-out"
+                  >
+                    Music
+                  </p>
+                </div>
+              </div>
+              <!-- Price and Action Button -->
+              <div class="flex gap-3 md:gap-4 lg:gap-6 items-center w-full">
+                <!-- Price -->
+                <div class="flex items-center gap-1 md:gap-1.5 flex-grow">
+                  <span
+                    class="font-semibold text-[#eb5757] text-lg md:text-xl lg:text-2xl whitespace-nowrap transition-colors duration-300 ease-out group-hover:text-blue"
+                  >
+                    Rp160.000
+                  </span>
+                  <span
+                    class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base whitespace-nowrap transition-colors duration-300 ease-out"
+                  >
+                    /person
+                  </span>
+                </div>
+                <!-- Action Button -->
+                <div
+                  class="bg-[rgba(252,155,76,0.09)] flex items-center justify-center p-2 md:p-2.5 lg:p-3 rounded-[100px] transition-all duration-300 ease-out cursor-pointer group-hover:bg-purple/25 group-hover:scale-105"
+                >
+                  <div
+                    class="bg-orange w-5 h-5 md:w-5.5 md:h-5.5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center transition-all duration-300 ease-out group-hover:bg-purple-600 group-hover:scale-110"
+                  >
+                    <span
+                      class="font-bold text-white text-sm md:text-sm lg:text-base leading-none transition-all duration-300 ease-out"
+                    >
+                      &gt;
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div> </a
+          ><a
+            href="/src/pages/workshop-details"
+            class="block flex-shrink-0 md:flex-shrink"
+          >
+            <div
+              class="bg-white rounded-[12px] md:rounded-[20px] lg:rounded-[24px] p-3 md:p-5 lg:p-6 w-full max-w-[250px] md:max-w-full flex flex-col gap-4 md:gap-6 lg:gap-9 shadow-sm hover:shadow-xl hover:shadow-purple/15 hover:-translate-y-2 transition-all duration-300 ease-out flex-shrink-0 cursor-pointer group relative overflow-hidden border border-transparent hover:border-blue"
+            >
+              <!-- Instructor Info & Workshop Image -->
+              <div class="flex flex-col gap-3 md:gap-4 lg:gap-[18px] w-full">
+                <!-- Instructor Profile -->
+                <div
+                  class="flex gap-2 md:gap-3 items-center w-full relative z-10"
+                >
+                  <div
+                    class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full overflow-hidden flex-shrink-0"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+                      alt="Topikih Hoode Luicy"
+                      class="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105"
+                    />
+                  </div>
+                  <div class="flex flex-col gap-0.5 flex-grow min-w-0">
+                    <h3
+                      class="font-semibold text-[#09093c] text-sm md:text-base lg:text-lg leading-tight transition-colors duration-300 ease-out group-hover:text-blue"
+                    >
+                      Topikih Hoode Luicy
+                    </h3>
+                    <p
+                      class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base leading-tight transition-colors duration-300 ease-out"
+                    >
+                      Orator Instructor
+                    </p>
+                  </div>
+                </div>
+                <!-- Workshop Image with Status Badge -->
+                <div
+                  class="relative w-full h-[140px] md:h-[170px] lg:h-[200px] rounded-[8px] md:rounded-[12px] lg:rounded-[16px] overflow-hidden transition-all duration-300 ease-out"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop"
+                    alt="Building Confidence and Mastering Sales Techniques: A Complete Guide for Sales Professionals to Achieve Outstanding Results"
+                    class="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105"
+                  />
+                  <!-- Status Badge -->
+                  <div
+                    class="absolute top-2 left-2 md:top-3 md:left-3 bg-[#1f8a70] flex items-center gap-1 px-3 py-2 md:px-4 md:py-2.5 lg:px-5 lg:py-3 rounded-[100px] transition-all duration-300 ease-out z-10 w-max"
+                  >
+                    <img
+                      src="/public/assets/icons/badge-workshop-card-open.svg"
+                      alt="open"
+                      class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                    />
+                    <span
+                      class="font-semibold text-white text-xs md:text-sm lg:text-base whitespace-nowrap"
+                    >
+                      OPEN
+                    </span>
+                  </div>
+                </div>
+                <!-- Workshop Details -->
+                <div class="flex flex-col gap-1.5 md:gap-2 w-full">
+                  <!-- Date and Time -->
+                  <div class="flex gap-2 md:gap-3 items-start w-full">
+                    <div class="flex items-center gap-1">
+                      <img
+                        src="/public/assets/icons/calendar-2.svg"
+                        alt="Calendar"
+                        class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                      />
+                      <span
+                        class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base capitalize"
+                      >
+                        Mon, 27 May 2024
+                      </span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                      <img
+                        src="/public/assets/icons/timer.svg"
+                        alt="Time"
+                        class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                      />
+                      <span
+                        class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base capitalize"
+                      >
+                        9:30 AM
+                      </span>
+                    </div>
+                  </div>
+                  <!-- Workshop Title -->
+                  <h2
+                    class="font-semibold text-[#09093c] text-base md:text-lg lg:text-xl leading-[1.3] md:leading-[1.35] lg:leading-[1.4] capitalize line-clamp-2 transition-colors duration-300 ease-out group-hover:text-blue"
+                  >
+                    Building Confidence and Mastering Sales Techniques: A
+                    Complete Guide for Sales Professionals to Achieve
+                    Outstanding Results
+                  </h2>
+                  <!-- Category -->
+                  <p
+                    class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base transition-colors duration-300 ease-out"
+                  >
+                    Self Improvement
+                  </p>
+                </div>
+              </div>
+              <!-- Price and Action Button -->
+              <div class="flex gap-3 md:gap-4 lg:gap-6 items-center w-full">
+                <!-- Price -->
+                <div class="flex items-center gap-1 md:gap-1.5 flex-grow">
+                  <span
+                    class="font-semibold text-[#eb5757] text-lg md:text-xl lg:text-2xl whitespace-nowrap transition-colors duration-300 ease-out group-hover:text-blue"
+                  >
+                    Rp160.000
+                  </span>
+                  <span
+                    class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base whitespace-nowrap transition-colors duration-300 ease-out"
+                  >
+                    /person
+                  </span>
+                </div>
+                <!-- Action Button -->
+                <div
+                  class="bg-[rgba(252,155,76,0.09)] flex items-center justify-center p-2 md:p-2.5 lg:p-3 rounded-[100px] transition-all duration-300 ease-out cursor-pointer group-hover:bg-purple/25 group-hover:scale-105"
+                >
+                  <div
+                    class="bg-orange w-5 h-5 md:w-5.5 md:h-5.5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center transition-all duration-300 ease-out group-hover:bg-purple-600 group-hover:scale-110"
+                  >
+                    <span
+                      class="font-bold text-white text-sm md:text-sm lg:text-base leading-none transition-all duration-300 ease-out"
+                    >
+                      &gt;
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div> </a
+          ><a
+            href="/src/pages/workshop-details"
+            class="block flex-shrink-0 md:flex-shrink"
+          >
+            <div
+              class="bg-white rounded-[12px] md:rounded-[20px] lg:rounded-[24px] p-3 md:p-5 lg:p-6 w-full max-w-[250px] md:max-w-full flex flex-col gap-4 md:gap-6 lg:gap-9 shadow-sm hover:shadow-xl hover:shadow-purple/15 hover:-translate-y-2 transition-all duration-300 ease-out flex-shrink-0 cursor-pointer group relative overflow-hidden border border-transparent hover:border-blue"
+            >
+              <!-- Instructor Info & Workshop Image -->
+              <div class="flex flex-col gap-3 md:gap-4 lg:gap-[18px] w-full">
+                <!-- Instructor Profile -->
+                <div
+                  class="flex gap-2 md:gap-3 items-center w-full relative z-10"
+                >
+                  <div
+                    class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full overflow-hidden flex-shrink-0"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=150&h=150&fit=crop&crop=face"
+                      alt="Bociel Raez"
+                      class="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105"
+                    />
+                  </div>
+                  <div class="flex flex-col gap-0.5 flex-grow min-w-0">
+                    <h3
+                      class="font-semibold text-[#09093c] text-sm md:text-base lg:text-lg leading-tight transition-colors duration-300 ease-out group-hover:text-blue"
+                    >
+                      Bociel Raez
+                    </h3>
+                    <p
+                      class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base leading-tight transition-colors duration-300 ease-out"
+                    >
+                      Psychology Instructor
+                    </p>
+                  </div>
+                </div>
+                <!-- Workshop Image with Status Badge -->
+                <div
+                  class="relative w-full h-[140px] md:h-[170px] lg:h-[200px] rounded-[8px] md:rounded-[12px] lg:rounded-[16px] overflow-hidden transition-all duration-300 ease-out"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=200&fit=crop"
+                    alt="Managing Stress and Mental Health in the Music Industry"
+                    class="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105"
+                  />
+                  <!-- Status Badge -->
+                  <div
+                    class="absolute top-2 left-2 md:top-3 md:left-3 bg-[#1f8a70] flex items-center gap-1 px-3 py-2 md:px-4 md:py-2.5 lg:px-5 lg:py-3 rounded-[100px] transition-all duration-300 ease-out z-10 w-max"
+                  >
+                    <img
+                      src="/public/assets/icons/badge-workshop-card-open.svg"
+                      alt="open"
+                      class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                    />
+                    <span
+                      class="font-semibold text-white text-xs md:text-sm lg:text-base whitespace-nowrap"
+                    >
+                      OPEN
+                    </span>
+                  </div>
+                </div>
+                <!-- Workshop Details -->
+                <div class="flex flex-col gap-1.5 md:gap-2 w-full">
+                  <!-- Date and Time -->
+                  <div class="flex gap-2 md:gap-3 items-start w-full">
+                    <div class="flex items-center gap-1">
+                      <img
+                        src="/public/assets/icons/calendar-2.svg"
+                        alt="Calendar"
+                        class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                      />
+                      <span
+                        class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base capitalize"
+                      >
+                        Mon, 27 May 2024
+                      </span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                      <img
+                        src="/public/assets/icons/timer.svg"
+                        alt="Time"
+                        class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
+                      />
+                      <span
+                        class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base capitalize"
+                      >
+                        9:30 AM
+                      </span>
+                    </div>
+                  </div>
+                  <!-- Workshop Title -->
+                  <h2
+                    class="font-semibold text-[#09093c] text-base md:text-lg lg:text-xl leading-[1.3] md:leading-[1.35] lg:leading-[1.4] capitalize line-clamp-2 transition-colors duration-300 ease-out group-hover:text-blue"
+                  >
+                    Managing Stress and Mental Health in the Music Industry
+                  </h2>
+                  <!-- Category -->
+                  <p
+                    class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base transition-colors duration-300 ease-out"
+                  >
+                    Self Improvement
+                  </p>
+                </div>
+              </div>
+              <!-- Price and Action Button -->
+              <div class="flex gap-3 md:gap-4 lg:gap-6 items-center w-full">
+                <!-- Price -->
+                <div class="flex items-center gap-1 md:gap-1.5 flex-grow">
+                  <span
+                    class="font-semibold text-[#eb5757] text-lg md:text-xl lg:text-2xl whitespace-nowrap transition-colors duration-300 ease-out group-hover:text-blue"
+                  >
+                    Rp160.000
+                  </span>
+                  <span
+                    class="font-medium text-[#757c98] text-xs md:text-sm lg:text-base whitespace-nowrap transition-colors duration-300 ease-out"
+                  >
+                    /person
+                  </span>
+                </div>
+                <!-- Action Button -->
+                <div
+                  class="bg-[rgba(252,155,76,0.09)] flex items-center justify-center p-2 md:p-2.5 lg:p-3 rounded-[100px] transition-all duration-300 ease-out cursor-pointer group-hover:bg-purple/25 group-hover:scale-105"
+                >
+                  <div
+                    class="bg-orange w-5 h-5 md:w-5.5 md:h-5.5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center transition-all duration-300 ease-out group-hover:bg-purple-600 group-hover:scale-110"
+                  >
+                    <span
+                      class="font-bold text-white text-sm md:text-sm lg:text-base leading-none transition-all duration-300 ease-out"
+                    >
+                      &gt;
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <footer class="bg-white">
+      <div
+        class="max-w-1176 mx-auto padding-section py-8 md:py-12 lg:py-[52px]"
+      >
+        <!-- Logo and Description Section -->
+        <div
+          class="flex flex-col gap-4 items-center justify-center mb-6 lg:mb-8"
+        >
+          <!-- Logo -->
+          <div class="flex gap-2 items-center justify-center">
+            <div class="w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10">
+              <img
+                src="/public/assets/icons/logo.svg"
+                alt="AKTIV Logo"
+                class="w-full h-full"
+              />
+            </div>
+            <h2
+              class="font-bold text-xl md:text-2xl lg:text-2xl text-black leading-none"
+            >
+              AKTIV
+            </h2>
+          </div>
+          <!-- Description -->
+          <p
+            class="font-medium text-sm md:text-base lg:text-base text-gray text-center max-w-md"
+          >
+            Leading online workshop platform for professional skill development.
+          </p>
+        </div>
+        <!-- Divider Line -->
+        <div class="w-full h-px bg-gray-200 mb-6 lg:mb-8"></div>
+        <!-- Bottom Section -->
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8 lg:gap-12"
+        >
+          <!-- Navigation Links -->
+          <div
+            class="flex flex-wrap gap-4 md:gap-6 items-center justify-center md:justify-start"
+          >
+            <a
+              href="/src/pages#workshop"
+              class="font-medium text-sm md:text-base lg:text-base text-gray hover:text-black transition-colors"
+            >
+              Workshop
+            </a>
+            <a
+              href="/src/pages#community"
+              class="font-medium text-sm md:text-base lg:text-base text-gray hover:text-black transition-colors"
+            >
+              Community
+            </a>
+            <a
+              href="/src/pages#testimone"
+              class="font-medium text-sm md:text-base lg:text-base text-gray hover:text-black transition-colors"
+            >
+              Testimone
+            </a>
+            <a
+              href="/src/pages/view-booking"
+              class="font-medium text-sm md:text-base lg:text-base text-gray hover:text-black transition-colors"
+            >
+              Check My Booking
+            </a>
+          </div>
+          <!-- Copyright and Social Links -->
+          <div
+            class="flex flex-col flex-wrap justify-end md:flex-row items-center gap-4 md:gap-6 lg:gap-12"
+          >
+            <!-- Copyright -->
+            <p
+              class="font-medium text-sm md:text-base lg:text-base text-gray text-center md:text-left"
+            >
+              © 2025 Aktiv Copyright
+            </p>
+            <!-- Social Links -->
+            <div class="flex gap-4 md:gap-6 items-center">
+              <a
+                href="#"
+                class="font-medium text-sm md:text-base lg:text-base text-gray hover:text-black transition-colors"
+              >
+                Instagram
+              </a>
+              <a
+                href="#"
+                class="font-medium text-sm md:text-base lg:text-base text-gray hover:text-black transition-colors"
+              >
+                Facebook
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="/src/scripts/copy-bank-number.js"></script>
+    <script src="/src/scripts/read-more-description.js"></script>
+    <script src="/src/scripts/testimonial-slider.js"></script>
+    <script src="/src/scripts/navbar.js"></script>
+    <script src="/src/scripts/upload-file.js"></script>
+    <!-- <script src="/src/scripts/copy-bank-number.js"></script>
+    <script src="/src/scripts/read-more-description.js"></script>
+    <script src="/src/scripts/testimonial-slider.js"></script>
+    <script src="/src/scripts/navbar.js"></script>
+    <script src="/src/scripts/upload-file.js"></script> -->
+  </body>
+</html>
