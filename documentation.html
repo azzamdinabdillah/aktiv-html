@@ -1,0 +1,1901 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aktiv Workshop - Project Documentation</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-color: #0268fb;
+        --primary-dark: #0052d4;
+        --secondary-color: #fc9b4c;
+        --accent-color: #fc9b4c;
+        --text-primary: #09093c;
+        --text-secondary: #757c98;
+        --bg-primary: #ffffff;
+        --bg-secondary: #f5f6fb;
+        --bg-accent: #dfefff;
+        --border-color: #e5e7eb;
+        --blue: #0268fb;
+        --light-blue: #dfefff;
+        --orange: #fc9b4c;
+        --black: #09093c;
+        --green: #1f8a70;
+        --gray: #757c98;
+        --gray-blue: #f5f6fb;
+        --red: #eb5757;
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow-md:
+          0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --shadow-lg:
+          0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --shadow-xl:
+          0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.7;
+        color: var(--text-primary);
+        background: linear-gradient(
+          135deg,
+          #0268fb 0%,
+          #5b8ce9 50%,
+          #4eb6f5 100%
+        );
+        min-height: 100vh;
+        font-size: 16px;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      /* Header Styles */
+      .header {
+        background: var(--bg-primary);
+        border-radius: 24px;
+        padding: 4rem 3rem;
+        margin-bottom: 3rem;
+        box-shadow: var(--shadow-xl);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #0268fb, #fc9b4c, #1f8a70);
+      }
+
+      .header h1 {
+        font-size: 4rem;
+        font-weight: 800;
+        background: #0268fb;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 1rem;
+        letter-spacing: -0.02em;
+      }
+
+      .header p {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .version-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: #0268fb;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        box-shadow: var(--shadow-md);
+      }
+
+      .version-badge::before {
+        content: "✨";
+        font-size: 1rem;
+      }
+
+      /* Layout */
+      .content {
+        display: grid;
+        grid-template-columns: 1fr 350px;
+        gap: 3rem;
+        align-items: start;
+      }
+
+      .main-content {
+        background: var(--bg-primary);
+        border-radius: 24px;
+        padding: 3rem;
+        box-shadow: var(--shadow-xl);
+        position: relative;
+      }
+
+      .main-content::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #0268fb, #fc9b4c);
+        border-radius: 24px 24px 0 0;
+      }
+
+      .sidebar {
+        background: var(--bg-primary);
+        border-radius: 24px;
+        padding: 2rem;
+        box-shadow: var(--shadow-xl);
+        height: fit-content;
+        /* position: sticky; */
+        top: 2rem;
+        border: 1px solid var(--border-color);
+      }
+
+      /* Section Styles */
+      .section {
+        margin-bottom: 4rem;
+        position: relative;
+      }
+
+      .section:last-child {
+        margin-bottom: 0;
+      }
+
+      .section h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 1rem;
+      }
+
+      .section h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, #0268fb, #fc9b4c);
+        border-radius: 2px;
+      }
+
+      .section h3 {
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: var(--primary-color);
+        margin: 2rem 0 1rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .section h3::before {
+        content: "▸";
+        color: var(--secondary-color);
+        font-weight: bold;
+      }
+
+      .section h4 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        margin: 1.5rem 0 0.75rem 0;
+      }
+
+      .section p {
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+        line-height: 1.8;
+      }
+
+      .section li {
+        margin-left: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: var(--text-secondary);
+      }
+
+      /* Code Blocks */
+      .code-block {
+        background: var(--bg-accent);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        overflow-x: auto;
+        font-family: "JetBrains Mono", "Fira Code", "Monaco", monospace;
+        font-size: 0.875rem;
+        position: relative;
+      }
+
+      .code-block::before {
+        content: "Code";
+        position: absolute;
+        top: 0.75rem;
+        right: 1rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        background: var(--bg-primary);
+        padding: 0.25rem 0.75rem;
+        border-radius: 6px;
+        border: 1px solid var(--border-color);
+      }
+
+      .code-block pre {
+        margin: 0;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        color: var(--text-primary);
+      }
+
+      /* File Structure */
+      .file-structure {
+        background: var(--bg-accent);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        font-family: "JetBrains Mono", "Fira Code", "Monaco", monospace;
+        font-size: 0.875rem;
+        overflow-x: auto;
+        position: relative;
+      }
+
+      .file-structure::before {
+        content: "Structure";
+        position: absolute;
+        top: 0.75rem;
+        right: 1rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        background: var(--bg-primary);
+        padding: 0.25rem 0.75rem;
+        border-radius: 6px;
+        border: 1px solid var(--border-color);
+      }
+
+      .file-structure .folder {
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+
+      .file-structure .file {
+        color: var(--text-primary);
+      }
+
+      /* Feature Grid */
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .feature-card {
+        background: var(--bg-primary);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 2rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #0268fb, #fc9b4c);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-xl);
+        border-color: var(--primary-color);
+      }
+
+      .feature-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .feature-card h4 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+
+      .feature-card p {
+        color: var(--text-secondary);
+        line-height: 1.7;
+      }
+
+      /* Tech Stack */
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin: 1.5rem 0;
+      }
+
+      .tech-badge {
+        background: #0268fb;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.3s ease;
+      }
+
+      .tech-badge:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+
+      /* Setup Steps */
+      .setup-steps {
+        background: var(--bg-accent);
+        border-radius: 16px;
+        padding: 2rem;
+        margin: 2rem 0;
+        border: 1px solid var(--border-color);
+      }
+
+      .setup-steps ol {
+        padding-left: 1.5rem;
+      }
+
+      .setup-steps li {
+        margin-bottom: 1rem;
+        color: var(--text-secondary);
+      }
+
+      .setup-steps strong {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      /* Alerts */
+      .warning,
+      .info {
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-left: 4px solid;
+        position: relative;
+      }
+
+      .warning {
+        background: #fef3c7;
+        border-color: var(--accent-color);
+        color: #92400e;
+      }
+
+      .info {
+        background: var(--bg-accent);
+        border-color: var(--primary-color);
+        color: var(--text-primary);
+      }
+
+      /* Table of Contents */
+      .table-of-contents {
+        list-style: none;
+        padding: 0;
+      }
+
+      .table-of-contents li {
+        margin-bottom: 0.5rem;
+      }
+
+      .table-of-contents a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        display: block;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+      }
+
+      .table-of-contents a:hover {
+        color: var(--primary-color);
+        background: var(--bg-accent);
+        border-color: var(--border-color);
+        transform: translateX(4px);
+      }
+
+      .table-of-contents a.active {
+        background: #0268fb;
+        color: white;
+        box-shadow: var(--shadow-md);
+      }
+
+      /* Mobile Navigation */
+      .mobile-toc-toggle {
+        display: none;
+        position: fixed;
+        top: 2rem;
+        right: 2rem;
+        z-index: 1000;
+        background: #0268fb;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 56px;
+        height: 56px;
+        font-size: 1.25rem;
+        cursor: pointer;
+        box-shadow: var(--shadow-lg);
+        transition: all 0.3s ease;
+      }
+
+      .mobile-toc-toggle:hover {
+        background: linear-gradient(135deg, #7aa84a, #042f2b);
+        transform: scale(1.1);
+      }
+
+      .mobile-toc-drawer {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 400px;
+        height: 100vh;
+        background: var(--bg-primary);
+        z-index: 999;
+        box-shadow: var(--shadow-xl);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow-y: auto;
+        padding: 2rem;
+        transform: translateX(100%);
+      }
+
+      .mobile-toc-drawer.open {
+        transform: translateX(0);
+      }
+
+      .mobile-toc-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid var(--border-color);
+      }
+
+      .mobile-toc-header h3 {
+        color: var(--primary-color);
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+
+      .mobile-toc-close {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--text-secondary);
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+
+      .mobile-toc-close:hover {
+        background: var(--bg-accent);
+        color: var(--primary-color);
+      }
+
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        backdrop-filter: blur(4px);
+      }
+
+      .overlay.open {
+        opacity: 1;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1200px) {
+        .container {
+          max-width: 100%;
+          padding: 1.5rem;
+        }
+
+        .content {
+          gap: 2rem;
+        }
+
+        .header {
+          padding: 3rem 2rem;
+        }
+
+        .main-content {
+          padding: 2.5rem;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .header h1 {
+          font-size: 3rem;
+        }
+
+        .header p {
+          font-size: 1.125rem;
+        }
+
+        .section h2 {
+          font-size: 2rem;
+        }
+
+        .section h3 {
+          font-size: 1.5rem;
+        }
+
+        .feature-grid {
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+      }
+
+      @media (max-width: 768px) {
+        .content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .header {
+          padding: 2.5rem 1.5rem;
+          margin-bottom: 2rem;
+        }
+
+        .header h1 {
+          font-size: 2.5rem;
+        }
+
+        .header p {
+          font-size: 1rem;
+        }
+
+        .container {
+          padding: 1rem;
+        }
+
+        .sidebar {
+          display: none;
+        }
+
+        .main-content {
+          padding: 2rem 1.5rem;
+        }
+
+        .section {
+          margin-bottom: 3rem;
+        }
+
+        .section h2 {
+          font-size: 1.75rem;
+        }
+
+        .section h3 {
+          font-size: 1.375rem;
+        }
+
+        .feature-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .mobile-toc-toggle {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .mobile-toc-drawer {
+          display: block;
+          width: 320px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header {
+          padding: 2rem 1rem;
+        }
+
+        .header h1 {
+          font-size: 2rem;
+        }
+
+        .main-content {
+          padding: 1.5rem 1rem;
+        }
+
+        .section h2 {
+          font-size: 1.5rem;
+        }
+
+        .section h3 {
+          font-size: 1.25rem;
+        }
+
+        .mobile-toc-drawer {
+          width: 325px;
+          padding: 1.5rem;
+        }
+      }
+
+      /* Print styles */
+      @media print {
+        body {
+          background: white;
+        }
+
+        .mobile-toc-toggle,
+        .mobile-toc-drawer,
+        .overlay {
+          display: none !important;
+        }
+
+        .content {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          display: block;
+          position: static;
+          box-shadow: none;
+          border: 1px solid #ccc;
+        }
+
+        .header,
+        .main-content,
+        .sidebar {
+          box-shadow: none;
+          border: 1px solid #ccc;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Mobile TOC Toggle Button -->
+    <button
+      class="mobile-toc-toggle"
+      id="mobileTocToggle"
+      aria-label="Open table of contents"
+    >
+      📋
+    </button>
+
+    <!-- Mobile TOC Drawer -->
+    <div class="mobile-toc-drawer" id="mobileTocDrawer">
+      <div class="mobile-toc-header">
+        <h3>Table of Contents</h3>
+        <button
+          class="mobile-toc-close"
+          id="mobileTocClose"
+          aria-label="Close table of contents"
+        >
+          ×
+        </button>
+      </div>
+      <ul class="table-of-contents" id="mobileTocList">
+        <li><a href="#overview">🚀 Project Overview</a></li>
+        <li><a href="#features">✨ Key Features</a></li>
+        <li><a href="#pages">📄 Available Pages</a></li>
+        <li><a href="#setup">⚙️ Project Setup</a></li>
+        <li><a href="#editing">✏️ How to Edit/Modify</a></li>
+        <li><a href="#structure">📁 Project Structure</a></li>
+        <li><a href="#components">🔧 Core Components</a></li>
+        <li><a href="#styling">🎨 Styling System</a></li>
+        <li><a href="#javascript">💻 JavaScript Modules</a></li>
+        <li><a href="#roles">👥 User Types & Features</a></li>
+        <li><a href="#guidelines">📝 Development Guidelines</a></li>
+        <li><a href="#deployment">🚀 Deployment</a></li>
+        <li><a href="#support">🛠️ Support & Maintenance</a></li>
+      </ul>
+
+      <h3
+        style="
+          margin-top: 2rem;
+          color: var(--primary-color);
+          font-size: 1.125rem;
+          font-weight: 600;
+        "
+      >
+        🔗 Quick Links
+      </h3>
+      <ul class="table-of-contents">
+        <li>
+          <a href="src/pages/workshop-details.html">🎯 Workshop Details</a>
+        </li>
+        <li>
+          <a href="src/pages/workshop-by-category.html"
+            >🏆 Workshop Categories</a
+          >
+        </li>
+        <li>
+          <a href="src/pages/booking-workshop.html">📝 Workshop Booking</a>
+        </li>
+        <li><a href="src/pages/view-booking.html">📱 View Bookings</a></li>
+        <li><a href="src/pages/confirmation-payment.html">💳 Payment</a></li>
+        <li><a href="package.json">📦 Package Configuration</a></li>
+        <li><a href="src/styles/input.css">🎨 CSS Configuration</a></li>
+      </ul>
+
+      <h3
+        style="
+          margin-top: 2rem;
+          color: var(--primary-color);
+          font-size: 1.125rem;
+          font-weight: 600;
+        "
+      >
+        🛠️ Tech Stack
+      </h3>
+      <div class="tech-stack">
+        <span class="tech-badge">🚀 HTML5</span>
+        <span class="tech-badge">🎨 CSS3</span>
+        <span class="tech-badge">💻 JavaScript</span>
+        <span class="tech-badge">⚡ Tailwind CSS</span>
+      </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <div class="container">
+      <div class="header">
+        <h1>AKTIV</h1>
+        <p>Professional Online Workshop Platform Documentation</p>
+        <span class="version-badge">Version 1.0.0</span>
+      </div>
+
+      <div class="content">
+        <div class="main-content">
+          <div class="section" id="overview">
+            <h2>Project Overview</h2>
+            <p>
+              AKTIV is a modern online workshop platform UI template designed to
+              provide professional skill development and training opportunities.
+              This is a
+              <strong>frontend-only template</strong> with no backend
+              functionality - perfect for developers who want to build their own
+              workshop platform or integrate with existing systems. The template
+              includes comprehensive booking interfaces, workshop management
+              pages, payment UI, and user-friendly designs for both workshop
+              organizers and participants. Built with modern web technologies,
+              it provides a seamless experience across all devices.
+            </p>
+
+            <div class="tech-stack">
+              <span class="tech-badge">🚀 HTML5</span>
+              <span class="tech-badge">🎨 CSS3</span>
+              <span class="tech-badge">💻 JavaScript</span>
+              <span class="tech-badge">⚡ Tailwind CSS</span>
+              <span class="tech-badge">🎨 Poppins Font</span>
+              <span class="tech-badge">📱 Responsive Design</span>
+              <span class="tech-badge">🎨 UI Template Only</span>
+            </div>
+          </div>
+
+          <div class="section" id="features">
+            <h2>Key Features</h2>
+            <div class="feature-grid">
+              <div class="feature-card">
+                <h4>🎯 Workshop Browsing & Discovery</h4>
+                <p>
+                  Browse workshops by categories, view detailed information,
+                  ratings, and schedules. Advanced filtering and search
+                  capabilities for finding the perfect workshop.
+                </p>
+              </div>
+              <div class="feature-card">
+                <h4>📝 Easy Booking System</h4>
+                <p>
+                  Streamlined booking process with form validation, participant
+                  information collection, and instant booking confirmation.
+                </p>
+              </div>
+              <div class="feature-card">
+                <h4>💳 Secure Payment Processing</h4>
+                <p>
+                  Integrated payment system supporting multiple payment methods
+                  including bank transfers with automatic payment confirmation.
+                </p>
+              </div>
+              <div class="feature-card">
+                <h4>📱 Booking Management</h4>
+                <p>
+                  View and manage your bookings, check payment status, download
+                  receipts, and access workshop materials in one place.
+                </p>
+              </div>
+              <div class="feature-card">
+                <h4>🏆 Workshop Categories</h4>
+                <p>
+                  Organized workshops across multiple categories including
+                  self-improvement, professional development, and skill
+                  enhancement.
+                </p>
+              </div>
+              <div class="feature-card">
+                <h4>📱 Responsive Design</h4>
+                <p>
+                  Mobile-first design ensuring optimal experience across all
+                  devices and screen sizes with modern UI components.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="section" id="pages">
+            <h2>Available Pages</h2>
+            <p>
+              This template includes 8 complete pages covering the entire
+              workshop booking flow. Each page is fully responsive and includes
+              interactive elements:
+            </p>
+
+            <div class="feature-grid">
+              <div class="feature-card">
+                <h4>🏠 Landing Page</h4>
+                <p>
+                  Main homepage with hero section, workshop categories, featured
+                  workshops, testimonials, and call-to-action sections.
+                </p>
+                <div
+                  class="code-block"
+                  style="margin-top: 1rem; background: var(--bg-secondary)"
+                >
+                  <pre style="font-size: 0.75rem; color: var(--text-secondary)">
+src/pages/index.html</pre
+                  >
+                </div>
+              </div>
+
+              <div class="feature-card">
+                <h4>🎯 Workshop Details</h4>
+                <p>
+                  Detailed workshop information page with description, pricing,
+                  schedule, instructor info, and booking button.
+                </p>
+                <div
+                  class="code-block"
+                  style="margin-top: 1rem; background: var(--bg-secondary)"
+                >
+                  <pre style="font-size: 0.75rem; color: var(--text-secondary)">
+src/pages/workshop-details.html</pre
+                  >
+                </div>
+              </div>
+
+              <div class="feature-card">
+                <h4>🏆 Workshop Categories</h4>
+                <p>
+                  Browse workshops by categories with filtering options, search
+                  functionality, and grid/list view toggle.
+                </p>
+                <div
+                  class="code-block"
+                  style="margin-top: 1rem; background: var(--bg-secondary)"
+                >
+                  <pre style="font-size: 0.75rem; color: var(--text-secondary)">
+src/pages/workshop-by-category.html</pre
+                  >
+                </div>
+              </div>
+
+              <div class="feature-card">
+                <h4>📝 Booking Workshop</h4>
+                <p>
+                  Multi-step booking form with participant information, workshop
+                  selection, pricing calculation, and form validation.
+                </p>
+                <div
+                  class="code-block"
+                  style="margin-top: 1rem; background: var(--bg-secondary)"
+                >
+                  <pre style="font-size: 0.75rem; color: var(--text-secondary)">
+src/pages/booking-workshop.html</pre
+                  >
+                </div>
+              </div>
+
+              <div class="feature-card">
+                <h4>📱 View Bookings</h4>
+                <p>
+                  User dashboard to view all bookings, check payment status,
+                  download receipts, and manage upcoming workshops.
+                </p>
+                <div
+                  class="code-block"
+                  style="margin-top: 1rem; background: var(--bg-secondary)"
+                >
+                  <pre style="font-size: 0.75rem; color: var(--text-secondary)">
+src/pages/view-booking.html</pre
+                  >
+                </div>
+              </div>
+
+              <div class="feature-card">
+                <h4>📋 Booking Details</h4>
+                <p>
+                  Detailed view of individual booking with participant info,
+                  workshop details, payment history, and action buttons.
+                </p>
+                <div
+                  class="code-block"
+                  style="margin-top: 1rem; background: var(--bg-secondary)"
+                >
+                  <pre style="font-size: 0.75rem; color: var(--text-secondary)">
+src/pages/details-booking.html</pre
+                  >
+                </div>
+              </div>
+
+              <div class="feature-card">
+                <h4>💳 Payment Confirmation</h4>
+                <p>
+                  Payment processing page with multiple payment methods, bank
+                  transfer details, and upload payment proof functionality.
+                </p>
+                <div
+                  class="code-block"
+                  style="margin-top: 1rem; background: var(--bg-secondary)"
+                >
+                  <pre style="font-size: 0.75rem; color: var(--text-secondary)">
+src/pages/confirmation-payment.html</pre
+                  >
+                </div>
+              </div>
+
+              <div class="feature-card">
+                <h4>✅ Payment Success</h4>
+                <p>
+                  Success confirmation page after payment completion with
+                  booking summary, next steps, and download options.
+                </p>
+                <div
+                  class="code-block"
+                  style="margin-top: 1rem; background: var(--bg-secondary)"
+                >
+                  <pre style="font-size: 0.75rem; color: var(--text-secondary)">
+src/pages/payment-success.html</pre
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="info">
+              <strong>Note:</strong> All pages are interconnected with proper
+              navigation flow. You can start from any page and navigate through
+              the complete user journey. Since this is a UI template, form
+              submissions and data persistence will need to be implemented with
+              your preferred backend solution.
+            </div>
+          </div>
+
+          <div class="section" id="setup">
+            <h2>Project Setup</h2>
+
+            <h3>Prerequisites</h3>
+            <ul>
+              <li>VS Code (Visual Studio Code)</li>
+              <li>Node.js (for installing dependencies with npm)</li>
+              <li>Live Server Extension for VS Code</li>
+            </ul>
+
+            <h3>Installation Steps</h3>
+            <div class="setup-steps">
+              <ol>
+                <li>
+                  <strong>Download ZIP file:</strong>
+                  <p>
+                    Download the AKTIV Workshop project ZIP file from the
+                    repository or available source.
+                  </p>
+                </li>
+                <li>
+                  <strong>Extract ZIP file:</strong>
+                  <p>
+                    Extract the downloaded ZIP file to your desired folder on
+                    your computer.
+                  </p>
+                </li>
+                <li>
+                  <strong>Open extracted folder:</strong>
+                  <p>
+                    Navigate to the extracted folder to view the project
+                    structure.
+                  </p>
+                </li>
+                <li>
+                  <strong>Open project folder in VS Code:</strong>
+                  <p>
+                    Right-click on the project folder, then select "Open with
+                    Code" or open VS Code and drag the folder into VS Code.
+                  </p>
+                </li>
+                <li>
+                  <strong>Install dependencies:</strong>
+                  <p>
+                    Follow these steps to install the required dependencies:
+                  </p>
+                  <ul style="margin-left: 2rem; margin-top: 0.5rem">
+                    <li>
+                      Open VS Code terminal (press Ctrl+` or go to Terminal →
+                      New Terminal)
+                    </li>
+                    <li>Run the command: <code>npm install</code></li>
+                    <li>
+                      Wait for the installation to complete (this will install
+                      Tailwind CSS and Prettier)
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Install Live Server Extension:</strong>
+                  <p>
+                    Follow these steps to install the Live Server Extension:
+                  </p>
+                  <ul style="margin-left: 2rem; margin-top: 0.5rem">
+                    <li>Open VS Code</li>
+                    <li>
+                      Click on the "Extensions" icon in the left sidebar (or
+                      press Ctrl+Shift+X)
+                    </li>
+                    <li>In the search box, type "Live Server"</li>
+                    <li>Find the "Live Server" extension by Ritwick Dey</li>
+                    <li>Click the "Install" button on that extension</li>
+                    <li>Wait for the installation process to complete</li>
+                    <li>
+                      The extension will be automatically activated after
+                      installation is complete
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Start Tailwind CSS compiler:</strong>
+                  <p>
+                    Run <code>npm run dev</code> in the terminal to start the
+                    Tailwind CSS compiler in watch mode.
+                  </p>
+                </li>
+                <li>
+                  <strong>Open landing page:</strong>
+                  <p>
+                    Navigate to any HTML file in <code>src/pages/</code> and
+                    right-click to select "Open with Live Server". The browser
+                    will automatically open and display the AKTIV workshop
+                    platform.
+                  </p>
+                </li>
+              </ol>
+            </div>
+
+            <div class="info">
+              <strong>Note:</strong> Live Server will automatically reload the
+              page when you make changes to HTML, CSS, or JavaScript files. The
+              server will run at <code>http://127.0.0.1:5500</code> or an
+              available port.
+            </div>
+
+            <div class="warning">
+              <strong>Tips:</strong> Make sure you have installed VS Code first
+              before following the steps above. If you encounter issues with
+              Live Server, try restarting VS Code or check if the port being
+              used is not already in use by another application.
+            </div>
+          </div>
+
+          <div class="section" id="editing">
+            <h2>How to Edit/Modify the Project</h2>
+
+            <h3>Making Changes to the Project</h3>
+            <p>
+              Once you have the project running with Live Server, you can start
+              editing and modifying the code. Here's how to make changes
+              effectively:
+            </p>
+
+            <h3>File Structure for Editing</h3>
+            <div class="setup-steps">
+              <ol>
+                <li>
+                  <strong>HTML Files:</strong>
+                  <p>
+                    All HTML pages are located in the
+                    <code>src/pages/</code> directory. You can edit any HTML
+                    file directly in VS Code. Changes will be automatically
+                    reflected in the browser thanks to Live Server.
+                  </p>
+                  <ul style="margin-left: 2rem; margin-top: 0.5rem">
+                    <li>
+                      <code>src/pages/workshop-details.html</code> - Workshop
+                      details page
+                    </li>
+                    <li>
+                      <code>src/pages/booking-workshop.html</code> - Booking
+                      form page
+                    </li>
+                    <li>
+                      <code>src/pages/view-booking.html</code> - User bookings
+                      dashboard
+                    </li>
+                    <li>
+                      <code>src/pages/confirmation-payment.html</code> - Payment
+                      page
+                    </li>
+                    <li>And 4 more complete pages...</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>CSS Styling:</strong>
+                  <p>
+                    The project uses Tailwind CSS. You can modify styles in two
+                    ways:
+                  </p>
+                  <ul style="margin-left: 2rem; margin-top: 0.5rem">
+                    <li>
+                      <strong>Tailwind Classes:</strong> Add Tailwind utility
+                      classes directly in HTML
+                    </li>
+                    <li>
+                      <strong>Custom CSS:</strong> Add custom styles in
+                      <code>src/styles/input.css</code>
+                    </li>
+                    <li>
+                      <strong>Compiled CSS:</strong> The final CSS is generated
+                      in <code>src/styles/output.css</code>
+                    </li>
+                    <li>
+                      <strong>Important:</strong> You must run
+                      <code>npm run dev</code> to compile Tailwind CSS changes
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>JavaScript Functionality:</strong>
+                  <p>
+                    JavaScript files are located in
+                    <code>src/scripts/</code> directory. Each file handles
+                    specific UI functionality:
+                  </p>
+                  <ul style="margin-left: 2rem; margin-top: 0.5rem">
+                    <li><code>navbar.js</code> - Navigation functionality</li>
+                    <li>
+                      <code>testimonial-slider.js</code> - Testimonial carousel
+                    </li>
+                    <li>
+                      <code>copy-bank-number.js</code> - Copy bank details
+                    </li>
+                    <li><code>upload-file.js</code> - File upload UI</li>
+                    <li>
+                      <code>read-more-description.js</code> - Expandable text
+                    </li>
+                    <li>And more interactive features...</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Images and Icons:</strong>
+                  <p>
+                    Static assets are stored in the
+                    <code>public/</code> directory:
+                  </p>
+                  <ul style="margin-left: 2rem; margin-top: 0.5rem">
+                    <li>
+                      <code>public/assets/icons/</code> - SVG icons for the
+                      interface
+                    </li>
+                    <li>
+                      <code>public/assets/images/</code> - PNG images and
+                      graphics
+                    </li>
+                  </ul>
+                </li>
+              </ol>
+            </div>
+
+            <h3>Development Workflow</h3>
+            <div class="setup-steps">
+              <ol>
+                <li>
+                  <strong>Start Tailwind CSS Compiler:</strong>
+                  <p>
+                    <strong>IMPORTANT:</strong> Before making any changes, you
+                    must start the Tailwind CSS compiler by running
+                    <code>npm run dev</code> in the VS Code terminal. This will
+                    watch for changes and automatically compile your CSS.
+                  </p>
+                </li>
+                <li>
+                  <strong>Start Live Server:</strong>
+                  <p>
+                    Make sure Live Server is also running so you can see changes
+                    in real-time in the browser.
+                  </p>
+                </li>
+                <li>
+                  <strong>Edit Files:</strong>
+                  <p>
+                    Open any file you want to modify in VS Code and make your
+                    changes. You can edit HTML, CSS, or JavaScript files.
+                  </p>
+                </li>
+                <li>
+                  <strong>Save Changes:</strong>
+                  <p>
+                    Save the file (Ctrl+S). Both the Tailwind compiler and Live
+                    Server will automatically process and reload your changes.
+                  </p>
+                </li>
+                <li>
+                  <strong>Test Changes:</strong>
+                  <p>
+                    Check your changes in the browser to ensure everything works
+                    as expected.
+                  </p>
+                </li>
+              </ol>
+            </div>
+
+            <div class="warning">
+              <strong>Critical:</strong> You MUST run
+              <code>npm run dev</code> in the terminal before making any
+              modifications to the project. This command starts the Tailwind CSS
+              compiler which watches for changes and automatically compiles your
+              CSS. Without this, your Tailwind CSS changes will not be applied
+              to the project.
+            </div>
+
+            <h3>Common Modifications</h3>
+            <div class="feature-grid">
+              <div class="feature-card">
+                <h4>🎨 Change Colors and Styling</h4>
+                <p>
+                  Modify the color scheme by editing CSS variables in
+                  <code>src/css/input.css</code> or by changing Tailwind classes
+                  in HTML files.
+                </p>
+              </div>
+              <div class="feature-card">
+                <h4>📝 Update Text Content</h4>
+                <p>
+                  Edit any text content directly in the HTML files. All text is
+                  easily accessible and can be modified without affecting
+                  functionality.
+                </p>
+              </div>
+              <div class="feature-card">
+                <h4>🖼️ Replace Images and Icons</h4>
+                <p>
+                  Replace images in <code>public/assets/images/</code> or icons
+                  in <code>public/assets/icons/</code> with your own assets.
+                  Make sure to maintain the same file names or update the
+                  references in HTML.
+                </p>
+              </div>
+              <div class="feature-card">
+                <h4>⚙️ Modify Functionality</h4>
+                <p>
+                  Edit JavaScript files in <code>src/scripts/</code> to change
+                  how UI features work, add new interactions, or customize
+                  existing behavior. Note: Backend functionality will need to be
+                  implemented separately.
+                </p>
+              </div>
+              <div class="feature-card">
+                <h4>📱 Adjust Layout</h4>
+                <p>
+                  Modify the HTML structure and Tailwind CSS classes to change
+                  the layout, add new sections, or reorganize existing content.
+                </p>
+              </div>
+              <div class="feature-card">
+                <h4>🔧 Add New Pages</h4>
+                <p>
+                  Create new HTML files following the existing structure and add
+                  them to the navigation system by updating the sidebar
+                  configuration.
+                </p>
+              </div>
+            </div>
+
+            <div class="info">
+              <strong>Pro Tip:</strong> Always make a backup of your project
+              before making significant changes. You can create a copy of the
+              entire project folder to preserve the original version.
+            </div>
+
+            <div class="warning">
+              <strong>Important:</strong> When modifying CSS, remember that this
+              project uses Tailwind CSS. If you add custom styles, make sure
+              they don't conflict with existing Tailwind classes. Use the
+              browser's developer tools (F12) to inspect elements and understand
+              the current styling.
+            </div>
+
+            <div class="warning">
+              <strong>UI Template Only:</strong> This is a frontend template
+              without backend functionality. Forms will not submit data,
+              payments will not process, and user data will not persist. You'll
+              need to integrate with your preferred backend solution (Node.js,
+              PHP, Python, etc.) to add full functionality.
+            </div>
+          </div>
+
+          <div class="section" id="structure">
+            <h2>Project Structure</h2>
+
+            <div class="file-structure">
+              <div class="folder">aktiv/</div>
+              <div class="file">├── package.json</div>
+              <div class="file">├── package-lock.json</div>
+              <div class="file">├── aktiv.zip</div>
+              <div class="folder">├── public/</div>
+              <div class="folder">│ └── assets/</div>
+              <div class="folder">│ ├── icons/</div>
+              <div class="file">│ │ ├── logo.svg</div>
+              <div class="file">│ │ ├── badge-workshop-card-*.svg</div>
+              <div class="file">│ │ ├── (40+ SVG icons)</div>
+              <div class="folder">│ └── images/</div>
+              <div class="file">│ ├── hero.png</div>
+              <div class="file">│ ├── cta.png</div>
+              <div class="file">
+                │ ├── bank icons (bca.png, bni.png, bri.png)
+              </div>
+              <div class="file">│ └── testimonial images</div>
+              <div class="folder">└── src/</div>
+              <div class="folder">├── styles/</div>
+              <div class="file">│ ├── input.css</div>
+              <div class="file">│ └── output.css</div>
+              <div class="folder">├── scripts/</div>
+              <div class="file">│ ├── navbar.js</div>
+              <div class="file">│ ├── copy-bank-number.js</div>
+              <div class="file">│ ├── fix-href.js</div>
+              <div class="file">│ ├── read-more-description.js</div>
+              <div class="file">│ ├── testimonial-slider.js</div>
+              <div class="file">│ └── upload-file.js</div>
+              <div class="folder">└── pages/</div>
+              <div class="file">├── index.html (landing page)</div>
+              <div class="file">├── workshop-details.html</div>
+              <div class="file">├── workshop-by-category.html</div>
+              <div class="file">├── booking-workshop.html</div>
+              <div class="file">├── view-booking.html</div>
+              <div class="file">├── details-booking.html</div>
+              <div class="file">├── confirmation-payment.html</div>
+              <div class="file">└── payment-success.html</div>
+            </div>
+          </div>
+
+          <div class="section" id="components">
+            <h2>Core Components</h2>
+
+            <h3>1. Landing Page System</h3>
+            <p>
+              The main landing page provides comprehensive workshop discovery
+              and platform introduction with sections:
+            </p>
+            <ul>
+              <li>
+                <strong>Hero Section:</strong> Eye-catching introduction with
+                CTA
+              </li>
+              <li>
+                <strong>Workshop Categories:</strong> Browse by skill categories
+              </li>
+              <li>
+                <strong>Featured Workshops:</strong> Highlighted popular
+                workshops
+              </li>
+              <li><strong>Testimonials:</strong> User feedback and reviews</li>
+            </ul>
+
+            <h3>2. Navigation System</h3>
+            <p>
+              Responsive navigation implemented in
+              <code>src/scripts/navbar.js</code> with features:
+            </p>
+            <ul>
+              <li>Responsive mobile/desktop navigation</li>
+              <li>Smooth scroll navigation</li>
+              <li>Fixed header with scroll effects</li>
+              <li>Mobile hamburger menu</li>
+            </ul>
+
+            <h3>3. Workshop Management</h3>
+            <p>Workshop browsing and booking system with multiple pages:</p>
+            <ul>
+              <li>
+                <strong>Workshop Details:</strong> Comprehensive workshop
+                information
+              </li>
+              <li>
+                <strong>Category Filtering:</strong> Browse workshops by
+                categories
+              </li>
+              <li><strong>Booking Form:</strong> Multi-step booking process</li>
+              <li>
+                <strong>Payment Integration:</strong> Secure payment processing
+              </li>
+            </ul>
+
+            <h3>4. Interactive Components</h3>
+            <p>Reusable interactive elements and utilities:</p>
+            <ul>
+              <li>
+                <strong>Testimonial Slider:</strong> Dynamic testimonial
+                carousel
+              </li>
+              <li>
+                <strong>File Upload:</strong> Image/document upload with preview
+              </li>
+              <li>
+                <strong>Copy Bank Number:</strong> One-click bank info copying
+              </li>
+              <li><strong>Read More:</strong> Expandable content sections</li>
+            </ul>
+          </div>
+
+          <div class="section" id="styling">
+            <h2>Styling System</h2>
+
+            <h3>Tailwind CSS Configuration</h3>
+            <p>
+              The project uses Tailwind CSS v4 with custom theme configuration
+              in <code>src/styles/input.css</code>:
+            </p>
+
+            <div class="code-block">
+              <pre>
+@theme {
+  --color-blue: #0268fb;
+  --color-light-blue: #dfefff;
+  --color-orange: #fc9b4c;
+  --color-black: #09093c;
+  --color-green: #1f8a70;
+  --color-gray: #757c98;
+  --color-gray-blue: #f5f6fb;
+  --color-red: #EB5757;
+  --font-grotesk: "Space Grotesk", sans-serif;
+}</pre
+              >
+            </div>
+
+            <h3>Custom Components</h3>
+            <ul>
+              <li>
+                <strong>Workshop Cards:</strong> Interactive workshop display
+                cards with hover effects and status badges
+              </li>
+              <li>
+                <strong>Form Components:</strong> Consistent styling across
+                booking and payment forms
+              </li>
+              <li>
+                <strong>Button Variants:</strong> Primary, secondary, and CTA
+                buttons with gradient effects
+              </li>
+              <li>
+                <strong>Navigation:</strong> Responsive navbar with mobile
+                hamburger menu
+              </li>
+            </ul>
+
+            <h3>Typography</h3>
+            <p>
+              Uses Poppins as the primary font family with Space Grotesk for
+              headings, providing modern readability and professional
+              appearance.
+            </p>
+          </div>
+
+          <div class="section" id="javascript">
+            <h2>JavaScript Modules</h2>
+
+            <h3>Core Functionality</h3>
+            <ul>
+              <li>
+                <strong>navbar.js:</strong> Responsive navigation with mobile
+                menu and scroll effects
+              </li>
+              <li>
+                <strong>testimonial-slider.js:</strong> Automatic testimonial
+                carousel
+              </li>
+              <li>
+                <strong>copy-bank-number.js:</strong> One-click bank account
+                copying
+              </li>
+              <li>
+                <strong>upload-file.js:</strong> File upload with drag & drop
+                support
+              </li>
+              <li>
+                <strong>read-more-description.js:</strong> Expandable text
+                content
+              </li>
+              <li><strong>fix-href.js:</strong> Dynamic URL path management</li>
+            </ul>
+          </div>
+
+          <div class="section" id="roles">
+            <h2>User Types & Features</h2>
+
+            <h3>Workshop Participants</h3>
+            <p>Primary users with access to:</p>
+            <ul>
+              <li>Browse and discover workshops by categories</li>
+              <li>View detailed workshop information and ratings</li>
+              <li>Book workshops with secure payment processing</li>
+              <li>Manage bookings and view payment status</li>
+              <li>Access workshop materials and certificates</li>
+              <li>Provide feedback and testimonials</li>
+            </ul>
+
+            <h3>Workshop Organizers (Future Enhancement)</h3>
+            <p>Planned features for workshop creators:</p>
+            <ul>
+              <li>Create and manage workshop listings</li>
+              <li>Set pricing, schedules, and capacity</li>
+              <li>Track participant registrations</li>
+              <li>Manage workshop materials and resources</li>
+              <li>View analytics and participant feedback</li>
+              <li>Handle payment processing and payouts</li>
+            </ul>
+          </div>
+
+          <div class="section" id="guidelines">
+            <h2>Development Guidelines</h2>
+
+            <h3>Code Style</h3>
+            <ul>
+              <li>Use Prettier for code formatting</li>
+              <li>Follow consistent naming conventions</li>
+              <li>Maintain responsive design principles</li>
+              <li>Use semantic HTML elements</li>
+              <li>Implement proper accessibility features</li>
+            </ul>
+
+            <h3>File Organization</h3>
+            <ul>
+              <li>Keep related files in appropriate directories</li>
+              <li>Use descriptive file names</li>
+              <li>Separate concerns (HTML, CSS, JS)</li>
+              <li>Maintain consistent folder structure</li>
+            </ul>
+
+            <h3>Performance Considerations</h3>
+            <ul>
+              <li>Optimize images for web use</li>
+              <li>Minimize JavaScript bundle size</li>
+              <li>Use efficient CSS selectors</li>
+              <li>Implement lazy loading where appropriate</li>
+            </ul>
+
+            <div class="warning">
+              <strong>Important:</strong> Always test changes across different
+              devices and browsers to ensure compatibility and responsive
+              behavior.
+            </div>
+          </div>
+
+          <div class="section" id="deployment">
+            <h2>Deployment</h2>
+
+            <h3>Production Build</h3>
+            <p>For production deployment:</p>
+            <ol>
+              <li>Build the CSS files: <code>npm run dev</code></li>
+              <li>Ensure all assets are properly referenced</li>
+              <li>Test all functionality thoroughly</li>
+              <li>Deploy to your web server</li>
+            </ol>
+
+            <h3>Server Requirements</h3>
+            <ul>
+              <li>Static file hosting capability</li>
+              <li>HTTPS support (recommended)</li>
+              <li>Proper MIME type configuration</li>
+              <li>URL rewriting for SPA-like behavior (optional)</li>
+            </ul>
+          </div>
+
+          <div class="section" id="support">
+            <h2>Support & Maintenance</h2>
+
+            <p>For technical support and maintenance:</p>
+            <ul>
+              <li>Regularly update dependencies</li>
+              <li>Monitor for security vulnerabilities</li>
+              <li>Backup data and configurations</li>
+              <li>Test functionality after updates</li>
+              <li>Maintain documentation updates</li>
+            </ul>
+
+            <div class="info">
+              <strong>Note:</strong> This documentation should be updated
+              whenever significant changes are made to the project structure or
+              functionality.
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar">
+          <h3
+            style="
+              color: var(--primary-color);
+              margin-bottom: 1.5rem;
+              font-size: 1.25rem;
+              font-weight: 600;
+            "
+          >
+            📋 Table of Contents
+          </h3>
+          <ul class="table-of-contents">
+            <li><a href="#overview">🚀 Project Overview</a></li>
+            <li><a href="#features">✨ Key Features</a></li>
+            <li><a href="#pages">📄 Available Pages</a></li>
+            <li><a href="#setup">⚙️ Project Setup</a></li>
+            <li><a href="#editing">✏️ How to Edit/Modify</a></li>
+            <li><a href="#structure">📁 Project Structure</a></li>
+            <li><a href="#components">🔧 Core Components</a></li>
+            <li><a href="#styling">🎨 Styling System</a></li>
+            <li><a href="#javascript">💻 JavaScript Modules</a></li>
+            <li><a href="#roles">👥 User Types & Features</a></li>
+            <li><a href="#guidelines">📝 Development Guidelines</a></li>
+            <li><a href="#deployment">🚀 Deployment</a></li>
+            <li><a href="#support">🛠️ Support & Maintenance</a></li>
+          </ul>
+
+          <h3
+            style="
+              color: var(--primary-color);
+              margin: 2rem 0 1rem 0;
+              font-size: 1.25rem;
+              font-weight: 600;
+            "
+          >
+            🛠️ Tech Stack
+          </h3>
+          <div class="tech-stack">
+            <span class="tech-badge">🚀 HTML5</span>
+            <span class="tech-badge">🎨 CSS3</span>
+            <span class="tech-badge">💻 JavaScript</span>
+            <span class="tech-badge">⚡ Tailwind CSS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Enhanced Mobile TOC Drawer functionality
+      const mobileTocToggle = document.getElementById("mobileTocToggle");
+      const mobileTocDrawer = document.getElementById("mobileTocDrawer");
+      const mobileTocClose = document.getElementById("mobileTocClose");
+      const overlay = document.getElementById("overlay");
+
+      function openMobileToc() {
+        overlay.style.display = "block";
+        mobileTocDrawer.style.display = "block";
+        document.body.style.overflow = "hidden";
+
+        // Trigger reflow
+        mobileTocDrawer.offsetHeight;
+
+        mobileTocDrawer.classList.add("open");
+        overlay.classList.add("open");
+
+        // Add entrance animation
+        setTimeout(() => {
+          mobileTocDrawer.style.transform = "translateX(0)";
+        }, 10);
+      }
+
+      function closeMobileToc() {
+        mobileTocDrawer.style.transform = "translateX(100%)";
+        overlay.classList.remove("open");
+        document.body.style.overflow = "";
+
+        setTimeout(() => {
+          mobileTocDrawer.classList.remove("open");
+          mobileTocDrawer.style.display = "none";
+          overlay.style.display = "none";
+        }, 300);
+      }
+
+      mobileTocToggle.addEventListener("click", openMobileToc);
+      mobileTocClose.addEventListener("click", closeMobileToc);
+      overlay.addEventListener("click", closeMobileToc);
+
+      // Ensure overlay is properly initialized
+      overlay.style.display = "none";
+
+      // Close mobile TOC on escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && mobileTocDrawer.classList.contains("open")) {
+          closeMobileToc();
+        }
+      });
+
+      // Enhanced smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const headerOffset = 100;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition =
+              elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
+
+            // Close mobile TOC if open
+            closeMobileToc();
+          }
+        });
+      });
+
+      // Enhanced active state management
+      const sections = document.querySelectorAll(".section");
+      const tocLinks = document.querySelectorAll(
+        '.table-of-contents a[href^="#"]'
+      );
+
+      function updateActiveLink() {
+        let current = "";
+        const scrollPosition = window.scrollY + 150;
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+
+          if (
+            scrollPosition >= sectionTop &&
+            scrollPosition < sectionTop + sectionHeight
+          ) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        tocLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active");
+          }
+        });
+      }
+
+      // Throttled scroll event for better performance
+      let ticking = false;
+      function requestTick() {
+        if (!ticking) {
+          requestAnimationFrame(updateActiveLink);
+          ticking = true;
+        }
+      }
+
+      function updateTicking() {
+        ticking = false;
+      }
+
+      window.addEventListener("scroll", requestTick);
+      window.addEventListener("scroll", updateTicking);
+
+      // Update active link on page load
+      window.addEventListener("load", updateActiveLink);
+
+      // Close mobile TOC when clicking on a link
+      document
+        .querySelectorAll('.mobile-toc-drawer a[href^="#"]')
+        .forEach((link) => {
+          link.addEventListener("click", closeMobileToc);
+        });
+
+      // Handle window resize for responsive behavior
+      window.addEventListener("resize", function () {
+        if (
+          window.innerWidth > 768 &&
+          mobileTocDrawer.classList.contains("open")
+        ) {
+          closeMobileToc();
+        }
+      });
+
+      // Add intersection observer for smooth animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe sections for animation
+      document.querySelectorAll(".section").forEach((section) => {
+        section.style.opacity = "0";
+        section.style.transform = "translateY(20px)";
+        section.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        observer.observe(section);
+      });
+
+      // Add hover effects to feature cards
+      document.querySelectorAll(".feature-card").forEach((card) => {
+        card.addEventListener("mouseenter", function () {
+          this.style.transform = "translateY(-8px) scale(1.02)";
+        });
+
+        card.addEventListener("mouseleave", function () {
+          this.style.transform = "translateY(0) scale(1)";
+        });
+      });
+
+      // Add loading animation
+      window.addEventListener("load", function () {
+        document.body.style.opacity = "0";
+        document.body.style.transition = "opacity 0.5s ease";
+
+        setTimeout(() => {
+          document.body.style.opacity = "1";
+        }, 100);
+      });
+    </script>
+  </body>
+</html>
