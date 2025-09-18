@@ -1,5 +1,5 @@
 /**
- * Automatically fixes href attributes for links starting with "/src/pages"
+ * Automatically fixes href attributes for links starting with specified path
  * by adding .html extension according to specific rules
  *
  * Examples:
@@ -8,9 +8,13 @@
  * - href="/src/pages/view-booking#test" → href="/src/pages/view-booking.html#test"
  * - href="/src/pages#workshop" → href="/src/pages/index.html#workshop"
  */
+
+// Configuration - change this path as needed
+const BASE_PATH = "/aktiv/src/pages";
+
 function fixAllHrefs() {
-  // Get all elements with href attribute starting with "/src/pages"
-  const allLinks = document.querySelectorAll('a[href^="/src/pages"]');
+  // Get all elements with href attribute starting with base path
+  const allLinks = document.querySelectorAll(`a[href^="${BASE_PATH}"]`);
 
   allLinks.forEach((link) => {
     const originalHref = link.getAttribute("href");
@@ -41,19 +45,19 @@ function transformHref(href) {
     const beforeHash = href.substring(0, hashIndex);
     const afterHash = href.substring(hashIndex);
 
-    // Check if only hash after "/src/pages"
-    if (beforeHash === "/src/pages") {
+    // Check if only hash after base path
+    if (beforeHash === BASE_PATH) {
       // href="/src/pages#workshop" → href="/src/pages/index.html#workshop"
-      return "/src/pages/index.html" + afterHash;
+      return BASE_PATH + "/index.html" + afterHash;
     } else {
       // href="/src/pages/view-booking#test" → href="/src/pages/view-booking.html#test"
       return beforeHash + ".html" + afterHash;
     }
   } else {
     // No hash symbol
-    if (href === "/src/pages") {
+    if (href === BASE_PATH) {
       // href="/src/pages" → href="/src/pages/index.html"
-      return "/src/pages/index.html";
+      return BASE_PATH + "/index.html";
     } else {
       // href="/src/pages/view-booking" → href="/src/pages/view-booking.html"
       return href + ".html";
