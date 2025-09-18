@@ -10,7 +10,7 @@
  */
 
 // Configuration - change this path as needed
-const BASE_PATH = "/aktiv/src/pages";
+const BASE_PATH = "/src/pages";
 
 function fixAllHrefs() {
   // Get all elements with href attribute starting with base path

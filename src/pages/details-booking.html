@@ -9,7 +9,7 @@
     />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content="Astro v5.13.7" />
-    <link rel="stylesheet" href="/src/styles/global.css" />
+
     <link rel="stylesheet" href="/src/styles/output.css" />
     <title>Details Booking | Activ Workshop</title>
   </head>
@@ -195,7 +195,7 @@
       >
         <!-- Workshop Details Card with Accordion -->
         <div
-          class="bg-white rounded-2xl md:rounded-3xl lg:rounded-3xl p-4 md:p-6 lg:p-8 flex flex-col gap-6 md:gap-8 h-fit"
+          class="bg-white rounded-2xl md:rounded-3xl lg:rounded-3xl p-4 md:p-6 lg:p-8 h-fit"
         >
           <!-- Workshop Details Header -->
           <div class="flex flex-col gap-4 items-center">
@@ -254,200 +254,226 @@
               </div>
             </div>
           </div>
-          <!-- Accordion Toggle -->
-          <input
-            type="checkbox"
-            id="workshop-details-accordion"
-            class="hidden peer"
-          />
-          <!-- Accordion Content -->
-          <div
-            class="grid grid-rows-[0fr] peer-checked:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-in-out"
-          >
-            <div class="overflow-hidden">
-              <div class="flex flex-col gap-6 md:gap-8">
-                <!-- Instructor Details -->
-                <div class="flex flex-col gap-4">
-                  <h4
-                    class="capitalize font-bold text-black text-lg md:text-xl lg:text-xl leading-tight"
-                  >
-                    Instructor Details
-                  </h4>
-                  <div
-                    class="bg-white border border-[#e6e7eb] rounded-lg md:rounded-xl lg:rounded-xl p-3 md:p-4 lg:p-4 flex gap-3 items-center"
-                  >
-                    <!-- Instructor Avatar -->
-                    <div
-                      class="w-12 h-12 md:w-16 md:h-16 lg:w-16 lg:h-16 rounded-full bg-gray-200 flex-shrink-0"
+          <div class="flex flex-col gap-6 md:gap-8">
+            <!-- Accordion Toggle -->
+            <input
+              type="checkbox"
+              id="workshop-details-accordion"
+              class="hidden peer"
+            />
+            <!-- Accordion Content -->
+            <div
+              class="grid grid-rows-[0fr] peer-checked:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-in-out"
+            >
+              <div class="overflow-hidden">
+                <div class="flex flex-col gap-6 md:gap-8">
+                  <!-- Instructor Details -->
+                  <div class="flex flex-col gap-4">
+                    <h4
+                      class="capitalize mt-6 md:mt-8 lg font-bold text-black text-lg md:text-xl lg:text-xl leading-tight"
                     >
-                      <img
-                        src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80"
-                        alt="Instructor"
-                        class="w-full h-full object-cover rounded-full"
-                      />
-                    </div>
-                    <!-- Instructor Info -->
-                    <div class="flex-1 flex flex-col gap-0.5">
-                      <h5
-                        class="font-semibold text-black text-base md:text-lg lg:text-lg"
-                      >
-                        Megamore S Qie
-                      </h5>
-                      <p
-                        class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
-                      >
-                        Motivator Instructor
-                      </p>
-                    </div>
-                    <!-- Verified Badge -->
+                      Instructor Details
+                    </h4>
                     <div
-                      class="bg-[#0268fb] rounded-full p-2 md:p-2.5 lg:p-2.5 flex-shrink-0"
+                      class="bg-white border border-[#e6e7eb] rounded-lg md:rounded-xl lg:rounded-xl p-3 md:p-4 lg:p-4 flex gap-3 items-center"
                     >
-                      <img
-                        src="/public/assets/icons/verify.svg"
-                        alt="Verified"
-                        class="w-6 h-6 md:w-8 md:h-8 lg:w-8 lg:h-8"
-                      />
+                      <!-- Instructor Avatar -->
+                      <div
+                        class="w-12 h-12 md:w-16 md:h-16 lg:w-16 lg:h-16 rounded-full bg-gray-200 flex-shrink-0"
+                      >
+                        <img
+                          src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80"
+                          alt="Instructor"
+                          class="w-full h-full object-cover rounded-full"
+                        />
+                      </div>
+                      <!-- Instructor Info -->
+                      <div class="flex-1 flex flex-col gap-0.5">
+                        <h5
+                          class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                        >
+                          Megamore S Qie
+                        </h5>
+                        <p
+                          class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                        >
+                          Motivator Instructor
+                        </p>
+                      </div>
+                      <!-- Verified Badge -->
+                      <div
+                        class="bg-[#0268fb] rounded-full p-2 md:p-2.5 lg:p-2.5 flex-shrink-0"
+                      >
+                        <img
+                          src="/public/assets/icons/verify.svg"
+                          alt="Verified"
+                          class="w-6 h-6 md:w-8 md:h-8 lg:w-8 lg:h-8"
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-                <!-- Learning Objectives -->
-                <div class="flex flex-col gap-4">
-                  <h4
-                    class="font-bold text-black text-lg md:text-xl lg:text-xl leading-tight"
-                  >
-                    This workshop will teach
-                  </h4>
-                  <div class="flex flex-col gap-4 md:gap-6">
-                    <!-- Learning Item 1 -->
-                    <div class="flex gap-2 md:gap-2 lg:gap-2 items-center">
-                      <img
-                        src="/public/assets/icons/check.svg"
-                        alt="Check"
-                        class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
-                      />
-                      <span
-                        class="capitalize font-semibold text-black text-base md:text-lg lg:text-lg"
-                      >
-                        Crafting Compelling Messages
-                      </span>
-                    </div>
-                    <!-- Learning Item 2 -->
-                    <div class="flex gap-2 md:gap-2 lg:gap-2 items-center">
-                      <img
-                        src="/public/assets/icons/check.svg"
-                        alt="Check"
-                        class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
-                      />
-                      <span
-                        class="capitalize font-semibold text-black text-base md:text-lg lg:text-lg"
-                      >
-                        Enhancing Delivery Skills
-                      </span>
-                    </div>
-                    <!-- Learning Item 3 -->
-                    <div class="flex gap-2 md:gap-2 lg:gap-2 items-center">
-                      <img
-                        src="/public/assets/icons/check.svg"
-                        alt="Check"
-                        class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
-                      />
-                      <span
-                        class="capitalize font-semibold text-black text-base md:text-lg lg:text-lg"
-                      >
-                        Engaging Your Audience
-                      </span>
-                    </div>
-                    <!-- Learning Item 4 -->
-                    <div class="flex gap-2 md:gap-2 lg:gap-2 items-center">
-                      <img
-                        src="/public/assets/icons/check.svg"
-                        alt="Check"
-                        class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
-                      />
-                      <span
-                        class="capitalize font-semibold text-black text-base md:text-lg lg:text-lg"
-                      >
-                        Practical Exercises
-                      </span>
-                    </div>
-                    <!-- Learning Item 5 -->
-                    <div class="flex gap-2 md:gap-2 lg:gap-2 items-center">
-                      <img
-                        src="/public/assets/icons/check.svg"
-                        alt="Check"
-                        class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
-                      />
-                      <span
-                        class="capitalize font-semibold text-black text-base md:text-lg lg:text-lg"
-                      >
-                        Personal Development Plan
-                      </span>
+                  <!-- Learning Objectives -->
+                  <div class="flex flex-col gap-4">
+                    <h4
+                      class="font-bold text-black text-lg md:text-xl lg:text-xl leading-tight"
+                    >
+                      This workshop will teach
+                    </h4>
+                    <div class="flex flex-col gap-4 md:gap-6">
+                      <!-- Learning Item 1 -->
+                      <div class="flex gap-2 md:gap-2 lg:gap-2 items-center">
+                        <img
+                          src="/public/assets/icons/check.svg"
+                          alt="Check"
+                          class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                        />
+                        <span
+                          class="capitalize font-semibold text-black text-base md:text-lg lg:text-lg"
+                        >
+                          Crafting Compelling Messages
+                        </span>
+                      </div>
+                      <!-- Learning Item 2 -->
+                      <div class="flex gap-2 md:gap-2 lg:gap-2 items-center">
+                        <img
+                          src="/public/assets/icons/check.svg"
+                          alt="Check"
+                          class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                        />
+                        <span
+                          class="capitalize font-semibold text-black text-base md:text-lg lg:text-lg"
+                        >
+                          Enhancing Delivery Skills
+                        </span>
+                      </div>
+                      <!-- Learning Item 3 -->
+                      <div class="flex gap-2 md:gap-2 lg:gap-2 items-center">
+                        <img
+                          src="/public/assets/icons/check.svg"
+                          alt="Check"
+                          class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                        />
+                        <span
+                          class="capitalize font-semibold text-black text-base md:text-lg lg:text-lg"
+                        >
+                          Engaging Your Audience
+                        </span>
+                      </div>
+                      <!-- Learning Item 4 -->
+                      <div class="flex gap-2 md:gap-2 lg:gap-2 items-center">
+                        <img
+                          src="/public/assets/icons/check.svg"
+                          alt="Check"
+                          class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                        />
+                        <span
+                          class="capitalize font-semibold text-black text-base md:text-lg lg:text-lg"
+                        >
+                          Practical Exercises
+                        </span>
+                      </div>
+                      <!-- Learning Item 5 -->
+                      <div class="flex gap-2 md:gap-2 lg:gap-2 items-center">
+                        <img
+                          src="/public/assets/icons/check.svg"
+                          alt="Check"
+                          class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                        />
+                        <span
+                          class="capitalize font-semibold text-black text-base md:text-lg lg:text-lg"
+                        >
+                          Personal Development Plan
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <!-- Location Details -->
-                <div class="flex flex-col gap-4">
-                  <h4
-                    class="font-bold text-black text-lg md:text-xl lg:text-xl leading-tight"
-                  >
-                    Location Details
-                  </h4>
-                  <div
-                    class="bg-white border border-[#e6e7eb] rounded-lg md:rounded-xl lg:rounded-xl p-3 md:p-4 lg:p-5 flex flex-col gap-3 md:gap-4 lg:gap-4"
-                  >
-                    <!-- Location Image -->
-                    <div class="w-full">
-                      <img
-                        src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
-                        alt="Location"
-                        class="w-full h-32 md:h-40 lg:h-48 object-cover rounded-lg md:rounded-xl lg:rounded-xl"
-                      />
-                    </div>
-                    <!-- Location Info -->
-                    <div class="flex flex-col gap-2 md:gap-3 lg:gap-3">
-                      <p
-                        class="font-medium text-[#757c98] text-sm md:text-base lg:text-base leading-relaxed"
-                      >
-                        101 Cendrawasih Road, Melati, Bandung Wetan, Bandung,
-                        West Java, 40116, Indonesia
-                      </p>
-                      <a
-                        href="#"
-                        class="font-semibold text-[#fc9b4c] text-sm md:text-base lg:text-base hover:underline"
-                      >
-                        View in Google Maps
-                      </a>
+                  <!-- Location Details -->
+                  <div class="flex flex-col gap-4">
+                    <h4
+                      class="font-bold text-black text-lg md:text-xl lg:text-xl leading-tight"
+                    >
+                      Location Details
+                    </h4>
+                    <div
+                      class="bg-white border border-[#e6e7eb] rounded-lg md:rounded-xl lg:rounded-xl p-3 md:p-4 lg:p-5 flex flex-col gap-3 md:gap-4 lg:gap-4"
+                    >
+                      <!-- Location Image -->
+                      <div class="w-full">
+                        <img
+                          src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
+                          alt="Location"
+                          class="w-full h-32 md:h-40 lg:h-48 object-cover rounded-lg md:rounded-xl lg:rounded-xl"
+                        />
+                      </div>
+                      <!-- Location Info -->
+                      <div class="flex flex-col gap-2 md:gap-3 lg:gap-3">
+                        <p
+                          class="font-medium text-[#757c98] text-sm md:text-base lg:text-base leading-relaxed"
+                        >
+                          101 Cendrawasih Road, Melati, Bandung Wetan, Bandung,
+                          West Java, 40116, Indonesia
+                        </p>
+                        <a
+                          href="#"
+                          class="font-semibold text-[#fc9b4c] text-sm md:text-base lg:text-base hover:underline"
+                        >
+                          View in Google Maps
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <!-- Show More/Less Toggle Button -->
+            <label
+              for="workshop-details-accordion"
+              class="peer-checked:hidden flex gap-1.5 md:gap-2 lg:gap-2 items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
+            >
+              <span
+                class="capitalize font-semibold text-black text-base md:text-lg lg:text-lg"
+              >
+                <span class="">Show More</span>
+              </span>
+              <svg
+                class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 text-black transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </label>
+            <!-- Show More/Less Toggle Button -->
+            <label
+              for="workshop-details-accordion"
+              class="hidden peer-checked:flex gap-1.5 md:gap-2 lg:gap-2 items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
+            >
+              <span
+                class="capitalize font-semibold text-black text-base md:text-lg lg:text-lg"
+              >
+                <span class="">Show Less</span>
+              </span>
+              <svg
+                class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 text-black rotate-180 transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </label>
           </div>
-          <!-- Show More/Less Toggle Button -->
-          <label
-            for="workshop-details-accordion"
-            class="flex gap-1.5 md:gap-2 lg:gap-2 items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
-          >
-            <span
-              class="capitalize font-semibold text-black text-base md:text-lg lg:text-lg"
-            >
-              Show More
-            </span>
-            <svg
-              class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 text-black peer-checked:rotate-180 transition-transform duration-300"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              ></path>
-            </svg>
-          </label>
         </div>
         <div class="flex flex-col gap-4 md:gap-6 lg:gap-8">
           <!-- Status Success + Booking Details Combined Card -->
@@ -1116,10 +1142,5 @@
     <script src="/src/scripts/navbar.js"></script>
     <script src="/src/scripts/upload-file.js"></script>
     <script src="/src/scripts/fix-href.js"></script>
-    <!-- <script src="/src/scripts/copy-bank-number.js"></script>
-    <script src="/src/scripts/read-more-description.js"></script>
-    <script src="/src/scripts/testimonial-slider.js"></script>
-    <script src="/src/scripts/navbar.js"></script>
-    <script src="/src/scripts/upload-file.js"></script> -->
   </body>
 </html>
